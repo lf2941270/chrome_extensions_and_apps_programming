@@ -15,9 +15,7 @@
         }
     },
     "background": {
-        "page": [
-            "js/back/index.html"
-        ]
+        "page": "js/back/index.html"
     },
     "permissions": [
         "http://www.google.cn/"

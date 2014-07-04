@@ -1,23 +1,13 @@
-function httpRequest(url, callback){
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", url, true);
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4) {
-            callback(true);
-        }
-    }
-    xhr.onerror = function(){
-        callback(false);
-    }
-    xhr.send();
-}
+// 所有模块都通过 define 来定义
+define(function(require, exports, module) {
 
-function checkStatus(){
-    httpRequest('http://www.google.cn/', function(status){
-        chrome.browserAction.setIcon({path: 'images/'+(status?'online.png':'offline.png')});
-        setTimeout(checkStatus, 5000);
-    });
-  console.log(location.href);
-}
+  // 通过 require 引入依赖
+  var $ = require('jquery');
 
-checkStatus();
+  // 通过 exports 对外提供接口
+  exports.doSomething =123
+
+  // 或者通过 module.exports 提供整个接口
+  module.exports =456
+
+});
