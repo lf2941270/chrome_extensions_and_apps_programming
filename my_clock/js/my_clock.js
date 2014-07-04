@@ -11,3 +11,7 @@ function my_clock(el){
 
 var clock_div = document.getElementById('clock_div');
 my_clock(clock_div);
+//console.log($(".span1.votecell").text());
+
+console.log(document)
+//location.href="http://baidu.com";

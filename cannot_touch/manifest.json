@@ -5,7 +5,7 @@
     "description": "让你永远也点击不到Google的搜索按钮",
     "content_scripts": [
         {
-            "matches": ["*://www.google.com/"],
+            "matches": ["*://*/"],
             "js": ["js/cannot_touch.js"]
         }
     ]
