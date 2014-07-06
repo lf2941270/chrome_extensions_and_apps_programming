@@ -1,4 +1,21 @@
-define(function(require) {
-  var num=require('./status.js');
-  console.log(num);
+define(function(require,exports,module) {
+	var EventProxy=require('eventproxy');
+	var proxy=new EventProxy;
+	chrome.extension.onMessage.addListener(function(message, sender, sendResponse){
+		console.log(message);
+		sendResponse('reply msg from back!')
+	});
+	chrome.tabs.create({url: 'http://www.baidu.com',
+		active: true,
+		pinned: false
+	}, function(tab){
+			console.log(tab);
+			proxy.emit('tab',tab.id);
+	});
+	proxy.on('tab',function(id){
+		chrome.tabs.sendMessage(id,'msg from back',function(response){
+			console.log(response);
+		})
+	})
+
 });

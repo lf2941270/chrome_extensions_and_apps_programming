@@ -1,23 +1,30 @@
 {
-    "manifest_version": 2,
-    "name": "开服表",
-    "version": "0.0.1",
-    "description": "自动发开服表插件",
-    "icons": {
-        "16": "images/icon16.png",
-        "48": "images/icon48.png",
-        "128": "images/icon128.png"
-    },
-    "browser_action": {
-        "default_icon": {
-            "19": "images/icon19.png",
-            "38": "images/icon38.png"
-        }
-    },
-    "background": {
-        "page": "js/back/index.html"
-    },
-    "permissions": [
-        "http://www.google.cn/"
-    ]
+	"manifest_version": 2,
+	"name": "开服表",
+	"version": "0.0.1",
+	"description": "自动发开服表插件",
+	"icons": {
+		"16": "images/icon16.png",
+		"48": "images/icon48.png",
+		"128": "images/icon128.png"
+	},
+	"browser_action": {
+		"default_icon": {
+			"19": "images/icon19.png",
+			"38": "images/icon38.png"
+		},
+		"default_popup":"./js/popup/index.html"
+	},
+	"background": {
+		"page": "js/back/index.html"
+	},
+	"content_scripts": [
+		{
+			"matches": ["*://*/*"],
+			"js": ["js/lib/jquery-1.11.1.js","js/content/index.js"]
+		}
+	],
+	"permissions": [
+		"http://www.google.cn/"
+	]
 }

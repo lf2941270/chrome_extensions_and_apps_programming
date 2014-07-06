@@ -1,10 +1,9 @@
 
 // seajs 的简单配置
 seajs.config({
-    base: "../back/",
+    base: "../popup/",
     alias: {
-    "jquery": "../lib/jquery-1.11.1.js",
-		"eventproxy":"../lib/eventproxy.js"
+    "jquery": "../lib/jquery-1.11.1.js"
     }
 })
 
