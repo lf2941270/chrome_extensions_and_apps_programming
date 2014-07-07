@@ -1,5 +1,6 @@
 define(function(require,exports,module) {
-	var EventProxy=require('eventproxy');
+  require('./asset')
+	/*var EventProxy=require('eventproxy');
 	var proxy=new EventProxy;
 	chrome.extension.onMessage.addListener(function(message, sender, sendResponse){
 		console.log(message);
@@ -16,6 +17,13 @@ define(function(require,exports,module) {
 		chrome.tabs.sendMessage(id,'msg from back',function(response){
 			console.log(response);
 		})
-	})
+	});
+
+
+  chrome.storage.onChanged.addListener(function(changes, areaName){
+    chrome.storage.local.get(null,function(items){
+      console.log(items)
+    })
+  });*/
 
 });
