@@ -1,0 +1,42 @@
+
+define(function(require,exports,module){
+  module.exports={
+    title:"网站名称",
+    page:{
+      "status":"0表示需要登录，1表示已经登录",
+      "cookie":"",
+      "login":"example.com/login.php",
+      "publish":"example.com/publish.php"
+    },
+    "user":{
+      "default":true,
+      "username":"abc",
+      "password":"123"
+    },
+    "loginForm":{
+      "needVerifyCode":false,
+      "content":[
+        {
+          "name":"",
+          "type":"表单类型",
+          "replace":"用来替换的表单",
+          "value":"值"
+        }
+      ],
+      "submit":""
+    },
+    "publishForm":{
+      "content":[
+        {
+          "name":"",
+          "type":"表单类型",
+          "replace":"用来替换的表单",
+          "format":"用来格式化的函数",
+          "value":"经过格式化函数处理后的值",
+          "info":"备注"
+        }
+      ],
+      "submit":""
+    }
+  }
+});

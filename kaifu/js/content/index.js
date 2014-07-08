@@ -17,6 +17,9 @@ console.log(chrome)*/
 }, function(){
   //do something
 });*/
+chrome.storage.local.get("sites",function(result){
+  console.log(result);
+})
 chrome.storage.local.set({
   sites:[{
     id:1,
@@ -25,6 +28,9 @@ chrome.storage.local.set({
 }, function(){
   //do something
 });
-
-console.log(chrome.runtime)
-console.log(chrome.extension)
+chrome.storage.local.get("sites",function(result){
+  console.log(result);
+})
+//document.domain=document.location.domain;
+console.log(document.domain)
+console.log(document.cookie);

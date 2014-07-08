@@ -125,22 +125,41 @@ define(function(require,exports,module){
       return(this.attributes());
     }
   });
+
   Model.localStorage={
     saveLocal:function(name){
       var obj={};
       obj[name]=JSON.parse(JSON.stringify(this.records));
       chrome.storage.local.set(obj,function(){})
     },
-    loadLocal:function(name){
+    loadLocal:function(name,cb){
       var _=this;
       chrome.storage.local.get(name,function(result){
-        _.populate(result[name]);
+        _.populate(result[name],cb);
       });
     },
     getBytesInUse:function(name,callback){
       chrome.storage.local.getBytesInUse(name,callback);
     }
   };
+  Model.extend({
+    /*populate:function(result){
+      this.records=result;
+      console.log(this.records);
+    },*/
+    populate: function(values,cb){
+      // Reset model & records
+      this.records = {};
+
+      for (var i in values) {
+        var record = this.init(values[i]);
+        record.newRecord = false;
+        this.records[record.id] = record.dup();
+      }
+      cb(this.records);
+    }
+
+  })
   Model.extend(Model.localStorage);
   module.exports=Model;
 

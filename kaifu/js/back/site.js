@@ -1,7 +1,23 @@
 /**/
 define(function(require,exports,module){
-  function Site(){
-
-  }
-
+  var Model=require('./model');
+  var Site=Model.create();
+  Site.include({
+    setUser:function(username,password){//为账号密码不是默认的网站设置用户账号与密码
+      this.user.default=false;
+      this.user.username=username;
+      this.user.password=password;
+      this.save();
+    }
+  })
+  Site.extend({
+    initBack:function(){
+      var sites=require('./sites/index');
+      for(var i= 0,l=sites.length;i<l;i++){
+        Site.init(sites[i]);
+      }
+      Site.saveLocal("sites");
+    }
+  });
+  module.exports=Site;
 });

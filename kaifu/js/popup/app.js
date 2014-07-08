@@ -1,4 +1,8 @@
 define(function(require,exports,module){
 	var $=require('jquery');
-	console.log($)
+  var Site=require('../back/site');
+  Site.loadLocal("sites",function(res){
+    console.log(res)
+  })
+
 });

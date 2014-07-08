@@ -2,12 +2,7 @@
 define(function(require,exports,module){
   var Model=require('./model');
   var Asset=Model.create();
-  Asset.extend({
-    populate:function(result){
-      this.records=result;
-      console.log(JSON.stringify(this.records));
-    }
-  })
+
 //  Asset.extend(Model.localStorage);
 
 //  Asset.attributes=["name","ext"];
