@@ -1,8 +1,9 @@
 define(function(require,exports,module){
-	var $=require('jquery');
-  var Site=require('../back/site');
-  Site.loadLocal("sites",function(res){
-    console.log(res)
-  })
+	var Control=require('../back/control');
+  /*Control.loadLocal(function(res){
+    console.log(Control.find());
+  });
+*/
+  Control._setup();
 
 });

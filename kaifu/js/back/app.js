@@ -1,6 +1,15 @@
 define(function(require,exports,module) {
-  var Site=require('./site');
-  Site.initBack();
+  var EventProxy=require('eventproxy');
+  var proxy=new EventProxy;
+  var Control=require('./control');
+  Control.setup(function(control){
+    proxy.emit("test",control);
+  });
+  proxy.on("test",function(control){
+    control.clear()
+    console.log(control)
+
+  })
 	/*var EventProxy=require('eventproxy');
 	var proxy=new EventProxy;
 	chrome.extension.onMessage.addListener(function(message, sender, sendResponse){

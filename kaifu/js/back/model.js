@@ -20,8 +20,9 @@ define(function(require,exports,module){
     prototype:{
       init:function(){}
     },
-    create:function(){
+    create:function(storageName){
       var object=Object.create(this);
+      object.strageName=storageName; //设置在本地存储时的存储空间键名
       object.parent=this;
 //      object.prototype=object.fn=Object.create(this.prototype);
 
@@ -97,12 +98,28 @@ define(function(require,exports,module){
     }
   });
   Model.extend({
+    /*重构一下find，如果不传入参数，则返回第一项（一般只有一个存储项时才这么调用find）；如果传入null,则将所有项组成一个数组返回*/
     find:function(id){
-      var record=this.records[id];
-      if(!record){
-        throw("Unknow record!");
+      var record;
+      if(id===undefined){
+        for(var i in this.records){
+          record=this.records[i]
+          return record.dup();
+        }
+      }else if(id===null){
+        var records=[];
+        for(var i in this.records){
+          record=this.records[i];
+          records.push(record.dup());
+        }
+        return records;
+      }else{
+        record=this.records[id];
+        if(!record){
+          throw("Unknow record!");
+        }
+        return record.dup();
       }
-      return record.dup();
     }
   });
   Model.extend({
@@ -125,21 +142,29 @@ define(function(require,exports,module){
       return(this.attributes());
     }
   });
-
+  Model.extend({
+    proxy:function(func){
+      var self=this;
+      return function(){
+        return func.apply(self,arguments);
+      }
+    }
+  });
+  Model.include(Model.proxy);
   Model.localStorage={
-    saveLocal:function(name){
+    saveLocal:function(){
       var obj={};
-      obj[name]=JSON.parse(JSON.stringify(this.records));
+      obj[this.storageName]=JSON.parse(JSON.stringify(this.records));
       chrome.storage.local.set(obj,function(){})
     },
-    loadLocal:function(name,cb){
+    loadLocal:function(cb){
       var _=this;
-      chrome.storage.local.get(name,function(result){
-        _.populate(result[name],cb);
+      chrome.storage.local.get(this.storageName,function(result){
+        _.populate(result[this.storageName],cb);
       });
     },
-    getBytesInUse:function(name,callback){
-      chrome.storage.local.getBytesInUse(name,callback);
+    getBytesInUse:function(callback){
+      chrome.storage.local.getBytesInUse(this.storageName,callback);
     }
   };
   Model.extend({

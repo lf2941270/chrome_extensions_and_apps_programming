@@ -1,7 +1,7 @@
 /**/
 define(function(require,exports,module){
   var Model=require('./model');
-  var Site=Model.create();
+  var Site=Model.create("sites");
   Site.include({
     setUser:function(username,password){//为账号密码不是默认的网站设置用户账号与密码
       this.user.default=false;
@@ -16,7 +16,7 @@ define(function(require,exports,module){
       for(var i= 0,l=sites.length;i<l;i++){
         Site.init(sites[i]);
       }
-      Site.saveLocal("sites");
+      Site.saveLocal();
     }
   });
   module.exports=Site;

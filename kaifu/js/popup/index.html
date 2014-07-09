@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title>测试</title>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8;">
   <style>
     body{
@@ -10,14 +10,36 @@
     }
     body .test{
       overflow-y: visible;
-
+    }
+    body h2{
+      text-align: center;
+    }
+    .step{
+      display: none;
+    }
+    .step.active{
+      display: block;
     }
   </style>
 </head>
 <body>
+<h2>开服表自动发送插件</h2>
+
 <div id="main">
-  <h1>开服表设置项</h1>
-  <div class="test"></div>
+  <div class="step step-0">
+    <h3>填写账号密码</h3>
+    <p>
+      <label for="username">账号：</label>
+      <input type="text" id="username" name="username"/>
+    </p>
+    <p>
+      <label for="password">密码：</label>
+      <input type="text" id="password" name="password"/>
+    </p>
+    <p>
+      <input type="button" value="确认"/>
+    </p>
+  </div>
 </div>
 <script src="../lib/sea.js"></script>
 <script src="main.js"></script>
