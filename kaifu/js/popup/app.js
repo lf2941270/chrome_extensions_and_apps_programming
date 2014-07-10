@@ -4,6 +4,8 @@ define(function(require,exports,module){
     console.log(Control.find());
   });
 */
-  Control._setup();
+	Control.bindChange();
+
+	Control._setup();
 
 });

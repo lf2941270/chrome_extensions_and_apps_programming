@@ -21,11 +21,15 @@
 	"content_scripts": [
 		{
 			"matches": ["*://*/*"],
-			"js": ["js/lib/jquery-1.11.1.js","js/content/index.js"]
+			"js": ["js/lib/sea.js","js/content/index.js"]
 		}
 	],
 	"permissions": [
 		"http://www.google.cn/",
-    "storage"
+    "storage",
+		"*://*/*"
+	],
+	"web_accessible_resources":[
+		"js/*"
 	]
 }

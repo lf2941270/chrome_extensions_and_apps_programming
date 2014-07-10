@@ -1,11 +1,11 @@
 /*模板*/
 define(function(require,exports,module){
   module.exports={
-    title:"网站1",
+    title:"521G",
     page:{
       "status":"0表示需要登录，1表示已经登录",
       "cookie":"",
-      "login":"example.com/login.php",
+      "login":"http://op.521g.com/login.html",
       "publish":"example.com/publish.php"
     },
     "user":{
@@ -17,10 +17,19 @@ define(function(require,exports,module){
       "needVerifyCode":false,
       "content":[
         {
-          "name":"",
-          "type":"表单类型",
-          "replace":"用来替换的表单",
+          "name":"user",
+          "type":"text",
+          "replace":"username",
           "value":"值"
+        },{
+          "name":"pwd",
+          "type":"password",
+          "replace":"password",
+          "value":"值"
+        },{
+          "name":"remember",
+          "type":"checkbox",
+          "value":"1"
         }
       ],
       "submit":""

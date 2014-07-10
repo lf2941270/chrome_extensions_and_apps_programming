@@ -21,7 +21,7 @@ define(function(require,exports,module){
 			this.parent.records=this.dup();
 		},
 		destroy:function(){
-			delete this.parent.records[this.id];
+			delete this.parent.records;
 		},
 		update:function(){
 			this.parent.records=this.dup();

@@ -6,15 +6,18 @@ define(function(require,exports,module){
   var Changes=require("./changes");
   var DefaultUser=require("./defaultuser");
   var ReplaceForm=require('./replaceform');
-  Control.include({
+  Control.extend({
     clear:function(){//清空扩展的本地存储数据，主要供开发时用的，要慎用！
       var _=this;
       chrome.storage.local.clear(function(){
         console.log('已清空扩展的本地存储数据');
-        _.parent.setup();
+        _.setup();
       });
     }
   });
+	$("#clear").click(function(){
+		Control.clear();
+	})
   /*供back中调用的方法*/
   Control.extend({
     setup:function(cb){
@@ -33,12 +36,7 @@ define(function(require,exports,module){
   /*popup页面中每个步骤所对应的事件绑定*/
   Control.extend({
     event:{
-      all:function(){
-        var _=this;
-        $("#clear").click(function(){
-          _.clear();
-        })
-      },
+
       0:function(){
         var _=this;
         $("input[name='submit']").click(function(){
@@ -48,6 +46,7 @@ define(function(require,exports,module){
             alert("密码不能为空")
           }else{
             DefaultUser.setUser($("#username").val(),$("#password").val());
+						console.log(_)
             _._stepTo(1)
           }
         })
@@ -91,15 +90,22 @@ define(function(require,exports,module){
   });
   /*供popup中调用的方法,统一以下划线开头*/
   Control.extend({
+		bindChange:function(){
+			var storageName=this.storageName;
+			Changes.on(storageName,this.proxy(function(changes){
+
+				if(!(changes[storageName].oldValue&&changes[storageName].newValue&&changes[storageName].oldValue.step===changes[storageName].newValue.step)){
+					this._setup();
+				}
+			}))
+		},
     _setup:function(){
-      Changes.on(this.storageName,this.proxy(function(changes){
-        this._setup();
-      }))
+
       this.loadLocal(this.proxy(function(){
         var control=this.find();
-        console.log(control)
-        if(control!==undefined){
-          control._stepInit();
+				var record=this.init(control);
+        if(record!==undefined){
+					record._stepInit();
         }
       }));
     }
@@ -107,15 +113,18 @@ define(function(require,exports,module){
   Control.include({
     _stepInit:function(){
       $(".step-"+this.step).addClass("active").siblings().removeClass("active");
-      this.proxy(this.parent.event[this.step])();
-      this.proxy(this.parent.event.all)();
+			if(this.parent.event[this.step]){
+				this.proxy(this.parent.event[this.step])();
+			}
+//      this.proxy(this.parent.event.all)();
     }
   });
   Control.include({
     _stepTo:function(num){
+			console.log('_stepTo '+num)
       this.step=num;
-      this.save();
-      this.parent.saveLocal();
+      this.update();
+			this.parent.saveLocal();
     }
   })
   module.exports=Control;

@@ -1,6 +1,7 @@
 define(function(require,exports,module) {
   var EventProxy=require('eventproxy');
   var proxy=new EventProxy;
+
   var Control=require('./control');
   Control.setup();
 

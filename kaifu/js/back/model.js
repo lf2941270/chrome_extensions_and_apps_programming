@@ -60,7 +60,7 @@ define(function(require,exports,module){
     },
     setAtts:function(atts){
       for(var i in atts){
-        if(this.parent.attributes.indexOf(i)<0){
+        if(this.parent.attributes.indexOf(i)<0&&typeof atts[i]!=='function'&&i!=='parent'&&i!=='newRecord'){
           this.parent.attributes.push(i);
         }
       }
@@ -152,9 +152,10 @@ define(function(require,exports,module){
     },
     loadLocal:function(cb){
       var _=this;
-      chrome.storage.local.get(this.storageName,function(result){
-        if(!this.storageName){
-          throw "function chrome.storage.local.get must have storageName"
+      chrome.storage.local.get(_.storageName,function(result){
+        if(!_.storageName){
+					console.log(_);
+          throw "function chrome.storage.local.get must have storageName";
         }
         console.log("result");
         console.log(result)

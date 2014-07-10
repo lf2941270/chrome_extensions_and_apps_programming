@@ -17,6 +17,7 @@ console.log(chrome)*/
 }, function(){
   //do something
 });*/
+/*
 chrome.storage.local.get("sites",function(result){
   console.log(result);
 })
@@ -33,4 +34,23 @@ chrome.storage.local.get("sites",function(result){
 })
 //document.domain=document.location.domain;
 console.log(document.domain)
-console.log(document.cookie);
+console.log(document.cookie);*/
+
+/*
+
+var script=document.createElement("script");
+script.src="chrome-extension://edcbnmgbaolhoocpehjjhlnoilnldifj/js/lib/sea.js";
+document.body.appendChild(script);
+*/
+
+function loadScript(url){
+	var script=document.createElement("script");
+	script.type="text/javascript";
+	script.src=url;
+	document.body.appendChild(script);
+}
+var seajs=chrome.extension.getURL('/js/lib/sea.js');
+loadScript(seajs);
+
+var main=chrome.extension.getURL('/js/content/main.js');
+loadScript(main);
