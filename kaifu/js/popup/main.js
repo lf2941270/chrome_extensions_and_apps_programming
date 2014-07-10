@@ -4,7 +4,8 @@ seajs.config({
   base: "../popup/",
   alias: {
     "jquery": "../lib/jquery-1.11.1.js",
-    "handlebars":"../lib/handlebars-v1.3.0.js"
+    "handlebars":"../lib/handlebars-v1.3.0.js",
+    "eventproxy":"../lib/eventproxy.js"
   }
 })
 

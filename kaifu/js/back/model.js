@@ -1,4 +1,3 @@
-/**/
 define(function(require,exports,module){
   var jQuery=require('jquery');
   Math.guid=function(){
@@ -72,8 +71,6 @@ define(function(require,exports,module){
       }
     }
   });
-
-//持久化记录
   Model.records={};
   Model.include({
     newRecord:true,
@@ -98,7 +95,6 @@ define(function(require,exports,module){
     }
   });
   Model.extend({
-    /*重构一下find，如果不传入参数，则返回第一项（一般只有一个存储项时才这么调用find）；如果传入null,则将所有项组成一个数组返回*/
     find:function(id){
       var record;
 			record=this.records[id];
@@ -146,20 +142,25 @@ define(function(require,exports,module){
       return(this.attributes());
     }
   });
-
   Model.localStorage={
     saveLocal:function(){
       var obj={};
-			console.log(JSON.stringify(this.records))
-      obj[this.storageName]=JSON.parse(JSON.stringify(this.records));
-			console.log("已存储：");
-			console.log(obj)
-      chrome.storage.local.set(obj,function(){})
+      if(this.records){
+        obj[this.storageName]=JSON.parse(JSON.stringify(this.records));
+        chrome.storage.local.set(obj)
+      }
     },
     loadLocal:function(cb){
       var _=this;
       chrome.storage.local.get(this.storageName,function(result){
-        _.populate(result[_.storageName],cb);
+        if(!this.storageName){
+          throw "function chrome.storage.local.get must have storageName"
+        }
+        console.log("result");
+        console.log(result)
+        if(result){
+          _.populate(result[_.storageName],cb);
+        }
       });
     },
     getBytesInUse:function(callback){
@@ -167,10 +168,6 @@ define(function(require,exports,module){
     }
   };
   Model.extend({
-    /*populate:function(result){
-      this.records=result;
-      console.log(this.records);
-    },*/
     populate: function(values,cb){
       // Reset model & records
       this.records = {};
@@ -182,9 +179,7 @@ define(function(require,exports,module){
       }
       cb(this.records);
     }
-
   })
   Model.extend(Model.localStorage);
   module.exports=Model;
-
 });
