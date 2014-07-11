@@ -5,7 +5,6 @@ define(function(require,exports,module){
   });
 */
 	Control.bindChange();
-
 	Control._setup();
 
 });

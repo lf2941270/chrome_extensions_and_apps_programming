@@ -8,6 +8,7 @@ define(function(require,exports,module){
       this.user.username=username;
       this.user.password=password;
       this.save();
+      this.parent.saveLocal();
     }
   })
   Site.extend({

@@ -4,11 +4,16 @@ define(function(require,exports,module){
   var Changes=new EventProxy;
   chrome.storage.onChanged.addListener(function(changes){
     for(var i in changes){
-      console.log("changes on "+i);
-      console.log(changes);
       Changes.emit(i,changes);
     }
   });
+  Changes.on("control",function(changes){
+    if(!changes.control.newValue){//说明执行了清空数据
+      Changes.emit("clear");
+    }else if(changes.control.newValue&&changes.control.oldValue&&changes.control.newValue.step===2&&changes.control.newValue.process!==changes.control.oldValue.process){
+      Changes.emit("process",changes.control.newValue.process);
+    }
+  })
   module.exports=Changes;
 });/**
  * Created by Administrator on 14-7-10.

@@ -124,6 +124,7 @@ define(function(require,exports,module){
     created:function(){
       this.records={};
       this.attributes=[];
+      this.prototype=jQuery.extend(true,{},this.parent.prototype);
     }
   });
   Model.include({
@@ -134,8 +135,6 @@ define(function(require,exports,module){
         result[attr]=this[attr];
       }
       result.id=this.id;
-			console.log(result)
-
 			return result;
     },
     toJSON:function(){
@@ -154,11 +153,8 @@ define(function(require,exports,module){
       var _=this;
       chrome.storage.local.get(_.storageName,function(result){
         if(!_.storageName){
-					console.log(_);
           throw "function chrome.storage.local.get must have storageName";
         }
-        console.log("result");
-        console.log(result)
         if(result){
           _.populate(result[_.storageName],cb);
         }
