@@ -15,3 +15,9 @@ Changes.on("control",function(changes){
   console.log(changes);
 });*/
 
+
+var port= chrome.extension.connect();
+port.postMessage({message: "myCustomEvent", values: $("body").html()});
+$(function(){
+
+})

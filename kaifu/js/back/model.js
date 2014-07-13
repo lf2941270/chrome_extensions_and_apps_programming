@@ -160,6 +160,13 @@ define(function(require,exports,module){
         }
       });
     },
+		removeLocal:function(cb){
+			var _=this;
+			this.records={};
+			chrome.storage.local.remove(_.storageName,function(){
+				cb();
+			})
+		},
     getBytesInUse:function(callback){
       chrome.storage.local.getBytesInUse(this.storageName,callback);
     }
@@ -178,5 +185,6 @@ define(function(require,exports,module){
     }
   })
   Model.extend(Model.localStorage);
+
   module.exports=Model;
 });

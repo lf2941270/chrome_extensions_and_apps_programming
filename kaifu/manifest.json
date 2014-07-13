@@ -27,7 +27,8 @@
 	"permissions": [
 		"http://www.google.cn/",
     "storage",
-		"*://*/*"
+		"*://*/*",
+		"tabs"
 	],
 	"web_accessible_resources":[
 		"js/*"

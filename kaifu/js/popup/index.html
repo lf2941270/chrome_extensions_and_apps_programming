@@ -27,12 +27,26 @@
     .step.active{
       display: block;
     }
+    .step .process{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .step .process li{
+      padding: 4px;
+    }
+   .step .process li span{
+     margin-right: 5px;
+   }
+   .step .process li:nth-child(odd){
+     background: #f2f2f2;
+   }
   </style>
 </head>
 <body>
 <h2>开服表自动发送插件 V0.0.1</h2>
 <input type="button" value="清除数据" id="clear"/>
-<div id="main">
+<div id="main" ng-controller="controllerMain">
   <div class="step step-0">
     <h3>填写账号密码</h3>
     <p>

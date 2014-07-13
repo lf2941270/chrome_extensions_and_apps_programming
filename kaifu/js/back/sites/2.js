@@ -3,7 +3,7 @@ define(function(require,exports,module){
   module.exports={
     title:"网站2",
     page:{
-      "status":"0表示需要登录，1表示已经登录",
+      "status":0,
       "cookie":"",
       "login":"example.com/login.php",
       "publish":"example.com/publish.php"

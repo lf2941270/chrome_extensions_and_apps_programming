@@ -2,10 +2,12 @@
 define(function(require,exports,module){
   module.exports={
     title:"521G",
+		status:0,//0表示等待队列中，1表示登陆中，2表示处理中，3表示处理完毕
     page:{
-      "status":"0表示需要登录，1表示已经登录",
+      "status":0,//0表示需要登陆，1表示已有cookie无需登陆
       "cookie":"",
       "login":"http://op.521g.com/login.html",
+			"loginsuc":"",//登陆成功后跳转的页面地址
       "publish":"example.com/publish.php"
     },
     "user":{

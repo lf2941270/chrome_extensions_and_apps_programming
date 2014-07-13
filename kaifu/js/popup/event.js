@@ -55,7 +55,6 @@ define(function(require,exports,module){
         })
       },
       2:function(){
-        Changes.emit("test");
         var control=this;
         function init(){
           control._processTo(1);
@@ -75,12 +74,14 @@ define(function(require,exports,module){
         }
         function updateView(){
           var html="";
+					/*console.log("===============sites================");
+					console.log(sites)*/
           sites.loadLocal(function(){
-
-            for(var id in sites.records){
+						for(var id in sites.records){
               html+="<li>"
-              html+="<span>"+sites.records[id].user.username+"</span></br>"
-              html+="<span>"+sites.records[id].user.password+"</span></br>"
+              html+="<span>"+sites.records[id].title+":</span>"
+              html+="<span>"+sites.records[id].user.username+"</span>"
+              html+="<span>"+sites.records[id].user.password+"</span>"
               html+="</li>"
             }
             $(".process",".step-2").html(html).css({
