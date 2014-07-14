@@ -8,33 +8,29 @@ define(function(require,exports,module){
       "cookie":"",
       "login":"http://op.521g.com/login.html",
 			"loginsuc":"",//登陆成功后跳转的页面地址
-      "publish":"example.com/publish.php"
+      "publish":"http://op.521g.com/official/add.html"
     },
     "user":{
-      "default":true,
-      "username":"abc",
-      "password":"zzz"
+      "default":false,
+      "username":"wsiayz",
+      "password":"Yangzhi123"
     },
     "loginForm":{
       "needVerifyCode":false,
+      "selector":".login-form form",//登录表单的jquery选择器
       "content":[
         {
           "name":"user",
-          "type":"text",
-          "replace":"username",
           "value":"值"
         },{
           "name":"pwd",
-          "type":"password",
-          "replace":"password",
           "value":"值"
         },{
           "name":"remember",
-          "type":"checkbox",
-          "value":"1"
+          "remember":true//表示这个是记住密码表单
         }
       ],
-      "submit":""
+      "submit":"$('.loginBtn').trigger('click')"
     },
     "publishForm":{
       "content":[

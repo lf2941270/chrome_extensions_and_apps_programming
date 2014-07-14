@@ -142,11 +142,11 @@ define(function(require,exports,module){
     }
   });
   Model.localStorage={
-    saveLocal:function(){
+    saveLocal:function(cb){
       var obj={};
       if(this.records){
         obj[this.storageName]=JSON.parse(JSON.stringify(this.records));
-        chrome.storage.local.set(obj)
+        chrome.storage.local.set(obj,cb)
       }
     },
     loadLocal:function(cb){
@@ -163,9 +163,7 @@ define(function(require,exports,module){
 		removeLocal:function(cb){
 			var _=this;
 			this.records={};
-			chrome.storage.local.remove(_.storageName,function(){
-				cb();
-			})
+			this.saveLocal(cb);
 		},
     getBytesInUse:function(callback){
       chrome.storage.local.getBytesInUse(this.storageName,callback);

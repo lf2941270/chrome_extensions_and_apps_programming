@@ -1,11 +1,11 @@
 /*模板*/
 define(function(require,exports,module){
   module.exports={
-    title:"网站2",
+    title:"GameG开服网",
     page:{
       "status":0,
       "cookie":"",
-      "login":"example.com/login.php",
+      "login":"http://www.gameg.cn/u/",
       "publish":"example.com/publish.php"
     },
     "user":{
@@ -15,11 +15,15 @@ define(function(require,exports,module){
     },
     "loginForm":{
       "needVerifyCode":false,
+      "selector":".logindiv form",//登录表单的jquery选择器
       "content":[
         {
-          "name":"",
+          "name":"userid",
           "type":"表单类型",
-          "replace":"用来替换的表单",
+          "value":"值"
+        },{
+          "name":"pwd",
+          "type":"表单类型",
           "value":"值"
         }
       ],

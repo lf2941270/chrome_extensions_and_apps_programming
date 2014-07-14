@@ -15,6 +15,4 @@ define(function(require,exports,module){
     }
   })
   module.exports=Changes;
-});/**
- * Created by Administrator on 14-7-10.
- */
+});
