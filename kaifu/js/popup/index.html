@@ -15,6 +15,13 @@
       font-family: "微软雅黑";
       color: #444444;
     }
+   .clearfix:after{
+     content:'.';
+     height:0;
+     visibility:hidden;
+     display:block;
+     clear:both;
+   }
     body .test{
       overflow-y: visible;
     }
@@ -41,6 +48,20 @@
    .step .process li:nth-child(odd){
      background: #f2f2f2;
    }
+   .step-1 form{
+     border:1px dashed #ddd;
+   }
+   .step-1 p.clearfix{
+     margin: 0;
+     padding: 8px;
+   }
+   .step-1 p.clearfix>label{
+     display: block;float: left;
+     line-height:22px;
+   }
+   .step-1 p.clearfix:nth-child(odd){
+     background: #f2f2f2;
+   }
   </style>
 </head>
 <body>
@@ -63,25 +84,46 @@
   </div>
   <div class="step step-1">
     <h3>填写要发布的开服表信息</h3>
-    <p>
-      <label for="game">游戏名称：</label>
-      <input type="text" id="game" name="game"/>
-    </p>
-    <p>
-      <label for="time">开服时间：</label>
-      <input type="datetime" id="time" name="time"/>
-    </p>
-    <p>
-      <label for="server">服务器数：</label>
-      <input type="number" id="server" name="server"/>
-    </p>
-    <p>
-      <label for="main_url">进入地址：</label>
-      <input type="text" id="main_url" name="main_url"/>
-    </p>
+    <form>
+      <p class="clearfix">
+        <label for="game">游戏名称：</label>
+        <input type="text" id="game" name="game"/>
+      </p>
+      <p class="clearfix">
+        <label>游戏类型:</label>
+      <span>
+        <input checked=checked"" type="radio" name="leixing" value="角色扮演" id="leixing1"><label for="leixing1">角色扮演</label>
+        <input type="radio" name="leixing" value="战争策略" id="leixing2"><label for="leixing2">战争策略</label>
+        <input type="radio" name="leixing" value="休闲竞技" id="leixing3"><label for="leixing3">休闲竞技</label>
+        <input type="radio" name="leixing" value="模拟经营" id="leixing4"><label for="leixing4">模拟经营</label>
+        <input type="radio" name="leixing" value="社区养成" id="leixing5"><label for="leixing5">社区养成</label>
+      </span>
+      </p>
+      <p class="clearfix">
+        <label for="time">开服时间：</label>
+        <input type="datetime" id="time" name="time"/>
+      </p>
+      <p class="clearfix">
+        <label for="server">服务器数：</label>
+        <input type="number" id="server" name="server"/>
+      </p>
+      <p class="clearfix">
+        <label for="main_url">进入地址：</label>
+        <input type="text" id="main_url" name="main_url"/>
+      </p>
+      <p class="clearfix">
+        <label for="info">开服介绍：</label>
+        <input id="info" name="info" value="新区开放礼包多多"/>
+      </p>
+      <p class="clearfix">
+        <label for="qq">客服QQ：</label>
+        <input id="qq" name="qq" value="4008378088"/>
+      </p>
+    </form>
     <p>
       <input type="button" value="开始自动发布" name="publish"/>
     </p>
+
   </div>
   <div class="step step-2">
     <h3>第三步</h3>

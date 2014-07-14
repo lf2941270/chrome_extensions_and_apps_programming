@@ -7,7 +7,6 @@ define(function(require,exports,module){
       "status":0,//0表示需要登陆，1表示已有cookie无需登陆
       "cookie":"",
       "login":"http://op.521g.com/login.html",
-			"loginsuc":"",//登陆成功后跳转的页面地址
       "publish":"http://op.521g.com/official/add.html"
     },
     "user":{

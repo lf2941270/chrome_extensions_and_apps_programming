@@ -31,7 +31,6 @@ define(function(require,exports,module){
 						_.records[id].user.username=DefaultUser.records.username;
 						_.records[id].user.password=DefaultUser.records.password;
 					}
-          console.log(_.records[id].loginForm)
           if(_.records[id].loginForm.content[0]&&_.records[id].loginForm.content[1]){
             _.records[id].loginForm.content[0].value=_.records[id].user.username;
             _.records[id].loginForm.content[1].value=_.records[id].user.password;
@@ -44,20 +43,18 @@ define(function(require,exports,module){
   });
   Site.include({
     pro:function(port){
-      port.onMessage.addListener(function(msg){
-        if(msg==="loginsuc"){
-          port.postMessage({
-            "event":"publish",
-            "obj":this
-          })
-        }
-      })
+
       if(this.page.status===0){//说明尚未登录过
         port.postMessage({
           "event":"tryLogin",
           "obj":this
         })
-      }
+      }else{
+				port.postMessage({
+					"event":"publish",
+					"obj":this
+				})
+			}
     }
   })
   module.exports=Site;

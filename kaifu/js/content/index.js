@@ -21,6 +21,9 @@ var handleMap={
     }
   },
   "publish":function(obj){
+		if(location.href!==obj.page.publish){
+			location.href=obj.page.publish;//跳转到发布页面
+		}
     console.log("====publish=====");
     console.log(this);
   }

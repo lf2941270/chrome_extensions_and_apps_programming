@@ -31,7 +31,12 @@ define(function(require,exports,module) {
 							active: false,//作为非活动标签页打开
 							pinned: false
 						}, function(tab){
-							proxy.once(tab.id,function(port){//接收到tab.id事件，说明该页面已打开，可以通过port发送消息
+							proxy.on(tab.id,function(port){//接收到tab.id事件，说明该页面已打开，可以通过port发送消息
+								port.onMessage.addListener(function(msg){
+									if(msg==="loginsuc"){
+										site.page.status=1;
+									}
+								})
                 site.pro(port);
               });
 						});

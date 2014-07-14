@@ -6,12 +6,12 @@ define(function(require,exports,module){
       "status":0,
       "cookie":"",
       "login":"http://www.gameg.cn/u/",
-      "publish":"example.com/publish.php"
+      "publish":"http://www.gameg.cn/add_game_kf/"
     },
     "user":{
-      "default":true,
-      "username":"abc",
-      "password":"123"
+			"default":false,
+			"username":"baiyu0001",
+			"password":"baiyu0001"
     },
     "loginForm":{
       "needVerifyCode":false,
