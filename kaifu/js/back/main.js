@@ -9,5 +9,5 @@ seajs.config({
 })
 
 // 加载入口模块
-seajs.use("app")
+seajs.use("app");
 

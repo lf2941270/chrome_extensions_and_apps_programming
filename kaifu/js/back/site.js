@@ -4,6 +4,8 @@ define(function(require,exports,module){
 	var DefaultUser=require('./defaultuser');
 	var EventProxy=require('eventproxy');
 	var proxy=new EventProxy;
+	var format=require('./format');
+	var ReplaceForm=require('./replaceform');
   Site.include({
     setUser:function(username,password){//为账号密码不是默认的网站设置用户账号与密码
       this.user.default=false;
@@ -25,20 +27,35 @@ define(function(require,exports,module){
     },
 		prevProcess:function(proxyOut){//对Site进行预处理
 			var _=this;
-			DefaultUser.loadLocal(function(){
+			proxy.assign("defaultuser","replaceform",function(defaultuser,replaceform){
+				var publishForm;
+				var input;
 				for(var id in _.records){
 					if(_.records[id].user.default===true){
-						_.records[id].user.username=DefaultUser.records.username;
-						_.records[id].user.password=DefaultUser.records.password;
+						_.records[id].user.username=defaultuser.username;
+						_.records[id].user.password=defaultuser.password;
 					}
-          if(_.records[id].loginForm.content[0]&&_.records[id].loginForm.content[1]){
-            _.records[id].loginForm.content[0].value=_.records[id].user.username;
-            _.records[id].loginForm.content[1].value=_.records[id].user.password;
-          }
+					if(_.records[id].loginForm.content[0]&&_.records[id].loginForm.content[1]){
+						_.records[id].loginForm.content[0].value=_.records[id].user.username;
+						_.records[id].loginForm.content[1].value=_.records[id].user.password;
+					}
+					publishForm= _.records[id].publishForm;
+					for(var i= 0,len=publishForm.content.length;i<len;i++){
+						input=publishForm.content[i];
+						publishForm.content[id]=format(input,replaceform);
+					}
+					_.records[id].publishForm=publishForm;
 				}
-        _.saveLocal();
+				_.saveLocal();
 				proxyOut.emit("well");
+			});
+			DefaultUser.loadLocal(function(){
+				proxy.trigger("defaultuser",DefaultUser.records)
+			});
+			ReplaceForm.loadLocal(function(){
+				proxy.trigger("replaceform",ReplaceForm.records)
 			})
+
 		}
   });
   Site.include({

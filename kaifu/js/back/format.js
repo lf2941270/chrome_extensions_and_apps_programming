@@ -1,10 +1,7 @@
 define(function(require,exports,module){
-  module.exports=[
-    {
-      id:0,
-      func:function(value){
-        return value;
-      }
-    }
-  ]
+  module.exports=function(input,replaceform){
+		console.log(input)
+		console.log(replaceform)
+		return input;
+	}
 });

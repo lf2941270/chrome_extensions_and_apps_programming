@@ -34,10 +34,8 @@ define(function(require,exports,module){
     "publishForm":{
       "content":[
         {
-          "name":"",
-          "type":"表单类型",
-          "replace":"用来替换的表单",
-          "format":"用来格式化的函数",
+          "name":"game_name",
+          "replace":"game",
           "value":"经过格式化函数处理后的值",
           "info":"备注"
         }

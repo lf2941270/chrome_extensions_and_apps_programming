@@ -1,8 +1,8 @@
 define(function(require,exports,module) {
-  var EventProxy=require('eventproxy');
+
+	var EventProxy=require('eventproxy');
   var proxy=new EventProxy;
   require('./process');//后台主处理流程
-
   var Control=require('./control');
   Control.setup();
 	/*var EventProxy=require('eventproxy');
