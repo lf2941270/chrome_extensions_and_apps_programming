@@ -4,3 +4,5 @@
 http://open.chrome.360.cn/extension_dev/content_scripts.html
 
 在 back 中通过chrome.tabs.create(object createProperties, function callback)方法打开新标签页
+
+control的状态保存好像有问题
