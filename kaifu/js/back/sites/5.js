@@ -1,69 +1,74 @@
 /*模板*/
 define(function(require,exports,module){
   module.exports={
-    title:"6103",
+    title:"61147",
 		status:0,//0表示等待队列中，1表示登陆中，2表示处理中，3表示处理完毕
     page:{
       "status":0,//0表示需要登陆，1表示已有cookie无需登陆或者网站本身不需要登录
-      "login":"http://www.6103.com/login.html",
-      "publish":"http://www.6103.com/fabukaifu.html"
+      "login":"http://www.61147.com/index.php/admin/login",
+      "publish":"http://www.61147.com/index.php/admin/serveredit?url=http%3A%2F%2Fwww.61147.com%2Findex.php%2Fadmin%2Fservers"
     },
     "user":{
       "default":false,
-      "username":"baiyu0001",
+      "username":"ibaiyu",
       "password":"baiyu0001"
     },
     "loginForm":{
       "needVerifyCode":false,
-      "selector":".logintab form",//登录表单的jquery选择器
+      "selector":"#form1",//登录表单的jquery选择器
       "content":[
         {
-          "name":"tcomuser1",
+          "name":"username",
           "value":"值"
         },{
-          "name":"tcompass",
+          "name":"password",
           "value":"值"
-        },{
-          "name":"checkremember",
-          "remember":true//表示这个是记住密码表单
         }
       ],
       "submit":{//登录表单的提交方式
-        "selector":".loginbtn",
-        "trigger":"click"
+        "selector":"#form1",
+        "trigger":"submit"
       }
     },
     "publishForm":{
       "content":[
         {
-          "name":"gamename",
+          "name":"game_name",
           "replace":"game",
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"ktmei",
-          "format":5,
+          "name":"time_d",
+          "format":7,
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"qyfunum",
+          "name":"time_h",
+          "format":8,
+          "value":"经过格式化函数处理后的值"
+        },{
+          "name":"time_m",
+          "format":4,
+          "value":"经过格式化函数处理后的值"
+        },{
+          "name":"server_name",
           "replace":"server",
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"urllogin",
+          "name":"url_server",
           "replace":"site_url",
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"urlreg",
+          "name":"url_reg",
           "replace":"main_url",
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"activity",
+          "name":"server_txt",
           "replace":"info",
           "value":"0"
         }
       ],
       "submit":{
-        "selector":".publish",
-        "trigger":"click"
+        "selector":".form",
+        "trigger":"submit"
       }
     }
   }

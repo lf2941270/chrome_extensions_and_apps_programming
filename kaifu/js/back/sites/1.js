@@ -25,7 +25,7 @@ define(function(require,exports,module){
           "value":"值"
         },{
           "name":"remember",
-          "remember":true//表示这个是记住密码表单
+          "value":1//表示这个是记住密码表单
         }
       ],
       "submit":{//登录表单的提交方式

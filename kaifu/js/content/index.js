@@ -29,25 +29,30 @@ var handleMap={
       location.href=obj.page.publish;//跳转到发布页面
 
     }
-    for(var i in obj.publishForm.content){
-      input=obj.publishForm.content[i];
-      if(!input.type){
-        $('[name="'+input.name+'"]').val(input.value);
-      }else if(input.type==="radio"){
-        $('[name="'+input.name+'"][value="'+input.value+'"]').attr("checked","checked");
-      }else if(input.type==="select"){
-        $('[name="'+input.name+'"]').find('option').each(function(){
-          if($(this).text()===input.value){
-            $(this).attr("selected","selected");
-          }
-        });
-      }
-      /*if(obj.loginForm.content[i].remember===true){
-        $('[name="'+obj.loginForm.content[i].name+'"]',obj.loginForm.selector).attr("checked","checked");//勾选记住密码
-      }else{
-        $('[name="'+obj.loginForm.content[i].name+'"]',obj.loginForm.selector).val(obj.loginForm.content[i].value);
-      }*/
-    }
+		for(var i in obj.publishForm.content){
+
+			input=obj.publishForm.content[i];
+			if(!input.type){
+				$('[name="'+input.name+'"]').val(input.value);
+			}else if(input.type==="radio"){
+				$('[name="'+input.name+'"][value="'+input.value+'"]').attr("checked","checked");
+			}else if(input.type==="select"){
+				$('[name="'+input.name+'"]').val(input.value)
+				/*$('[name="'+input.name+'"]').find('option').each(function(){
+				 if($(this).text()===input.value){
+				 $(this).attr("selected",true);
+				 }else{
+				 $(this).attr("selected",false);
+				 }
+				 });*/
+			}
+
+			/*if(obj.loginForm.content[i].remember===true){
+			 $('[name="'+obj.loginForm.content[i].name+'"]',obj.loginForm.selector).attr("checked","checked");//勾选记住密码
+			 }else{
+			 $('[name="'+obj.loginForm.content[i].name+'"]',obj.loginForm.selector).val(obj.loginForm.content[i].value);
+			 }*/
+		}
     //发送成功消息
     port.postMessage("publishsuc");
     //提交表单的，暂时注释掉

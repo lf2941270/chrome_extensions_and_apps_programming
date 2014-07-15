@@ -33,7 +33,8 @@ define(function(require,exports,module){
           "value":"经过格式化函数处理后的值"
         },{
           "name":"offurl",
-          "value":"http://www.ibaiyu.cn"
+					"replace":"site_url",
+					"value":"http://www.ibaiyu.cn"
         },{
           "name":"qq",
           "replace":"qq",

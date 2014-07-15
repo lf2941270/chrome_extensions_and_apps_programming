@@ -33,7 +33,11 @@ define(function(require,exports,module){
       return this.year+"-"+this.month.fill(2)+"-"+this.date.fill(2)+" "+this.hour.fill(2)+":"+this.minute.fill(2)+":"+this.second.fill(2);
     },6:function(){
       return this.fullServerName;
-    }
+    },7:function(){
+			return this.year+"-"+this.month.fill(2)+"-"+this.date.fill(2);
+		},8:function(){
+			return this.hour.fill(2);
+		}
   },true);
 
   var formatMap;

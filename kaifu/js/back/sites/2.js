@@ -50,31 +50,26 @@ define(function(require,exports,module){
           "value":"经过格式化函数处理后的值"
         },{
           "name":"year",
-          "replace":"time",
           "type":"select",
           "value":"0",
           "format":0
         },{
           "name":"month",
-          "replace":"time",
           "type":"select",
           "value":"0",
           "format":1
         },{
           "name":"day",
-          "replace":"time",
           "type":"select",
           "value":"0",
           "format":2
         },{
           "name":"hour",
-          "replace":"time",
           "type":"select",
           "value":"0",
           "format":3
         },{
           "name":"minute",
-          "replace":"time",
           "type":"select",
           "value":"0",
           "format":4
