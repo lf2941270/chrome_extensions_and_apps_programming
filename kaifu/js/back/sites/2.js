@@ -2,9 +2,9 @@
 define(function(require,exports,module){
   module.exports={
     title:"GameG开服网",
+    "status":0,
     page:{
       "status":0,
-      "cookie":"",
       "login":"http://www.gameg.cn/u/",
       "publish":"http://www.gameg.cn/add_game_kf/"
     },
@@ -32,15 +32,58 @@ define(function(require,exports,module){
     "publishForm":{
       "content":[
         {
-          "name":"",
-          "type":"表单类型",
-          "replace":"用来替换的表单",
-          "format":"用来格式化的函数",
-          "value":"经过格式化函数处理后的值",
-          "info":"备注"
+          "name":"title",
+          "replace":"game",
+          "value":"经过格式化函数处理后的值"
+        },{
+          "name":"qufu",
+          "replace":"server",
+          "value":"经过格式化函数处理后的值"
+        },{
+          "name":"leixing",
+          "replace":"leixing",
+          "type":"radio",
+          "value":"经过格式化函数处理后的值"
+        },{
+          "name":"zhuce",
+          "replace":"main_url",
+          "value":"经过格式化函数处理后的值"
+        },{
+          "name":"year",
+          "replace":"time",
+          "type":"select",
+          "value":"0",
+          "format":0
+        },{
+          "name":"month",
+          "replace":"time",
+          "type":"select",
+          "value":"0",
+          "format":1
+        },{
+          "name":"day",
+          "replace":"time",
+          "type":"select",
+          "value":"0",
+          "format":2
+        },{
+          "name":"hour",
+          "replace":"time",
+          "type":"select",
+          "value":"0",
+          "format":3
+        },{
+          "name":"minute",
+          "replace":"time",
+          "type":"select",
+          "value":"0",
+          "format":4
         }
       ],
-      "submit":""
+      "submit":{
+        "selector":".tijiao",
+        "trigger":"click"
+      }
     }
   }
 });

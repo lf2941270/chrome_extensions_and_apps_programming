@@ -1,0 +1,57 @@
+/*模板*/
+define(function(require,exports,module){
+  module.exports={
+    title:"游客来",
+    "status":0,
+    page:{
+      "status":1,//无需登录
+      "login":"http://www.youkelai.com/",
+      "publish":"http://www.youkelai.com/member/newserver_add.php"
+    },
+    "user":{
+			"default":true,
+			"username":"",
+			"password":""
+    },
+
+    "publishForm":{
+      "content":[
+        {
+          "name":"gname",
+          "replace":"game",
+          "value":"经过格式化函数处理后的值"
+        },{
+          "name":"sname",
+          "format":6,
+          "value":"经过格式化函数处理后的值"
+        },{
+          "name":"operation",
+          "value":"爱百娱"
+        },{
+          "name":"regurl",
+          "replace":"main_url",
+          "value":"经过格式化函数处理后的值"
+        },{
+          "name":"offurl",
+          "value":"http://www.ibaiyu.cn"
+        },{
+          "name":"qq",
+          "replace":"qq",
+          "value":""
+        },{
+          "name":"about",
+          "replace":"info",
+          "value":"0"
+        },{
+          "name":"opendate",
+          "value":"0",
+          "format":5
+        }
+      ],
+      "submit":{
+        "selector":".submit input",
+        "trigger":"click"
+      }
+    }
+  }
+});

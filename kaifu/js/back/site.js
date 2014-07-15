@@ -31,18 +31,21 @@ define(function(require,exports,module){
 				var publishForm;
 				var input;
 				for(var id in _.records){
-					if(_.records[id].user.default===true){
-						_.records[id].user.username=defaultuser.username;
-						_.records[id].user.password=defaultuser.password;
-					}
-					if(_.records[id].loginForm.content[0]&&_.records[id].loginForm.content[1]){
-						_.records[id].loginForm.content[0].value=_.records[id].user.username;
-						_.records[id].loginForm.content[1].value=_.records[id].user.password;
-					}
+          if(_.records[id].user&&_.records[id].loginForm){
+            if(_.records[id].user.default===true){
+              _.records[id].user.username=defaultuser.username;
+              _.records[id].user.password=defaultuser.password;
+            }
+            if(_.records[id].loginForm.content[0]&&_.records[id].loginForm.content[1]){
+              _.records[id].loginForm.content[0].value=_.records[id].user.username;
+              _.records[id].loginForm.content[1].value=_.records[id].user.password;
+            }
+          }
 					publishForm= _.records[id].publishForm;
 					for(var i= 0,len=publishForm.content.length;i<len;i++){
 						input=publishForm.content[i];
-						publishForm.content[id]=format(input,replaceform);
+            console.log(input)
+						publishForm.content[i]=format(input,replaceform);
 					}
 					_.records[id].publishForm=publishForm;
 				}
@@ -59,19 +62,24 @@ define(function(require,exports,module){
 		}
   });
   Site.include({
-    pro:function(port){
+    pro:function(port,proxy){
 
-      if(this.page.status===0){//说明尚未登录过
+      if(this.status===1){//说明尚未登录过
         port.postMessage({
           "event":"tryLogin",
           "obj":this
         })
-      }else{
+      }else if(this.status===2){
 				port.postMessage({
 					"event":"publish",
 					"obj":this
 				})
-			}
+			}else if(this.status===3){
+        //关闭标签页的，暂时注释掉
+        /*chrome.tabs.remove(port.sender.tab.id, function(){
+          proxy.emit("closed")
+        });*/
+      }
     }
   })
   module.exports=Site;

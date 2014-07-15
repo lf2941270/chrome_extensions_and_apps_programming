@@ -25,22 +25,51 @@ define(function(require,exports,module) {
 				function processSite(id){
 //          var port;
 					var site=sites.find(id);
+          site.status=1
+          site.save();
+          site.parent.saveLocal();
+          function tabHandler(tab){
+            proxy.on(tab.id,function(port){//接收到tab.id事件，说明该页面已打开，可以通过port发送消息
+              var proxy=new EventProxy;
+              port.onMessage.addListener(function(msg){
+                switch (msg){
+                  case "loginsuc":
+                    site.status=2;
+                    break;
+                  case "publishsuc":
+                    site.status=3;
+                    break;
+                  case "":
+                    proxy.emit("tabLoaded");
+                    break;
+                }
+                site.save();
+                site.parent.saveLocal()
+              });
+              proxy.on("tabLoaded",function(){
+                site.pro(port,proxy);
+              });
+              proxy.on("closed",function(){
+                var siteId=temp.pop();
+                if(siteId!==undefined){
+                  processSite(siteId);
+                }
+              })
+            });
+          }
 					if(site.page.status===0){
 						chrome.tabs.create({
 							url: sites.records[id].page.login,
 							active: false,//作为非活动标签页打开
 							pinned: false
-						}, function(tab){
-							proxy.on(tab.id,function(port){//接收到tab.id事件，说明该页面已打开，可以通过port发送消息
-								port.onMessage.addListener(function(msg){
-									if(msg==="loginsuc"){
-										site.page.status=1;
-									}
-								})
-                site.pro(port);
-              });
-						});
-					}
+						}, tabHandler);
+					}else{
+            chrome.tabs.create({
+              url: sites.records[id].page.publish,
+              active: false,//作为非活动标签页打开
+              pinned: false
+            }, tabHandler);
+          }
 				}
 				for(var i= 0;i<maxTabsNum;i++){
 					var siteId=temp.pop();

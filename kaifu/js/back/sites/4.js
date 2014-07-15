@@ -1,69 +1,68 @@
 /*模板*/
 define(function(require,exports,module){
   module.exports={
-    title:"521G",
+    title:"6103",
 		status:0,//0表示等待队列中，1表示登陆中，2表示处理中，3表示处理完毕
     page:{
       "status":0,//0表示需要登陆，1表示已有cookie无需登陆或者网站本身不需要登录
-      "login":"http://op.521g.com/login.html",
-      "publish":"http://op.521g.com/official/add.html"
+      "login":"http://www.6103.com/login.html",
+      "publish":"http://www.6103.com/fabukaifu.html"
     },
     "user":{
       "default":false,
-      "username":"wsiayz",
-      "password":"Yangzhi123"
+      "username":"baiyu0001",
+      "password":"baiyu0001"
     },
     "loginForm":{
       "needVerifyCode":false,
-      "selector":".login-form form",//登录表单的jquery选择器
+      "selector":".logintab form",//登录表单的jquery选择器
       "content":[
         {
-          "name":"user",
+          "name":"tcomuser1",
           "value":"值"
         },{
-          "name":"pwd",
+          "name":"tcompass",
           "value":"值"
         },{
-          "name":"remember",
+          "name":"checkremember",
           "remember":true//表示这个是记住密码表单
         }
       ],
       "submit":{//登录表单的提交方式
-        "selector":".loginBtn",
+        "selector":".loginbtn",
         "trigger":"click"
       }
     },
     "publishForm":{
       "content":[
         {
-          "name":"game_name",
+          "name":"gamename",
           "replace":"game",
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"server_open_time",
-          "replace":"time",
+          "name":"ktmei",
           "format":5,
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"num",
+          "name":"qyfunum",
           "replace":"server",
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"main_url",
+          "name":"urllogin",
           "replace":"main_url",
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"pros",
-          "type":"radio",
-          "value":"0"
+          "name":"urlreg",
+          "replace":"main_url",
+          "value":"经过格式化函数处理后的值"
         },{
-          "name":"card",
-          "type":"radio",
+          "name":"activity",
+          "type":"info",
           "value":"0"
-        },
+        }
       ],
       "submit":{
-        "selector":".toSub",
+        "selector":".publish",
         "trigger":"click"
       }
     }

@@ -29,10 +29,16 @@ define(function(require,exports,module){
             }
           }
         })
+        $("input",".step-1").bind("blur",function(){
+          _.replaceform[$(this).attr("name")]=$(this).val();
+          _.save();
+          _.parent.saveLocal();
+        });
         $("input[name='publish']").click(function(){
           var allFilled=true;
           var replaceForm={};
           var key,value;
+
           $("input",".step-1").each(function(){
             if($(this).val()===""){
               allFilled=false;
@@ -52,7 +58,7 @@ define(function(require,exports,module){
             ReplaceForm.saveLocal();
             _._stepTo(2)
           }
-        })
+        });
       },
       2:function(){
         var control=this;
@@ -60,6 +66,8 @@ define(function(require,exports,module){
           control._processTo(1);
         }
         function setUp(){
+          console.log("=====setUp=====");
+          console.log(control)
           if(control.process===0){
             init();
           }else if(control.process===1){
@@ -77,11 +85,16 @@ define(function(require,exports,module){
 					/*console.log("===============sites================");
 					console.log(sites)*/
           sites.loadLocal(function(){
+            var statusMap={
+              0:"队列中...",
+              1:"登录中...",
+              2:"发布中...",
+              3:"发布成功！"
+            }
 						for(var id in sites.records){
               html+="<li>"
-              html+="<span>"+sites.records[id].title+":</span>"
-              html+="<span>"+sites.records[id].user.username+"</span>"
-              html+="<span>"+sites.records[id].user.password+"</span>"
+              html+="<span class='title'>"+sites.records[id].title+":</span>"
+              html+="<span class='status'>"+statusMap[sites.records[id].status]+"</span>"
               html+="</li>"
             }
             $(".process",".step-2").html(html).css({
