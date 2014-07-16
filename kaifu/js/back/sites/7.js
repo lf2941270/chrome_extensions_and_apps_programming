@@ -1,12 +1,12 @@
 /*模板*/
 define(function(require,exports,module){
   module.exports={
-    title:"6103",
+    title:"花絮网",
 		status:0,//0表示等待队列中，1表示登陆中，2表示处理中，3表示处理完毕
     page:{
       "status":0,//0表示需要登陆，1表示已有cookie无需登陆或者网站本身不需要登录
-      "login":"http://www.6103.com/login.html",
-      "publish":"http://www.6103.com/fabukaifu.html"
+      "login":"http://www.huaxv.com/login.html",
+      "publish":"http://www.huaxv.com/fabukaifu.html"
     },
     "user":{
       "default":false,
@@ -23,9 +23,6 @@ define(function(require,exports,module){
         },{
           "name":"tcompass",
           "value":"值"
-        },{
-          "name":"checkremember",
-          "remember":true//表示这个是记住密码表单
         }
       ],
       "submit":{//登录表单的提交方式
@@ -40,20 +37,40 @@ define(function(require,exports,module){
           "replace":"game",
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"ktmei",
-          "format":5,
+          "name":"year",
+          "value":"0",
+          "format":0
+        },{
+          "name":"month",
+          "value":"0",
+          "format":1
+        },{
+          "name":"day",
+          "value":"0",
+          "format":2
+        },{
+          "name":"hour",
+          "value":"0",
+          "format":3
+        },{
+          "name":"minute",
+          "value":"0",
+          "format":4
+        },{
+          "name":"gameserver[0]",
+          "format":6,
           "value":"经过格式化函数处理后的值"
         },{
           "name":"gametype",
           "replace":"leixing",
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"qyfunum",
-          "replace":"server",
+          "name":"oprcompany",
+          "replace":"company",
           "value":"经过格式化函数处理后的值"
         },{
           "name":"urllogin",
-          "replace":"site_url",
+          "replace":"main_url",
           "value":"经过格式化函数处理后的值"
         },{
           "name":"urlreg",

@@ -2,15 +2,24 @@ define(function(require,exports,module) {
   var Changes=require('./changes');
   var EventProxy=require('eventproxy');
   var proxy=new EventProxy;
-  var Control=require('./control');
-  var control;
+  /*var Control=require('./control');
+  var control;*/
   var sites=require('./site');
-	console.log(sites)
-	var maxTabsNum=10;//同时打开的标签页的最大值
+	var maxTabsNum=8;//同时打开的标签页的最大值
 
 	chrome.extension.onConnect.addListener(function(port) {
-		proxy.emit(port.sender.tab.id,port);
+    if(port.sender.tab){
+      proxy.emit(port.sender.tab.id,port);
+    }else{
+      port.onMessage.addListener(function(msg){
+        console.log(msg)
+        proxy.emit("selectTab",msg.selectTab);
+      })
+    }
 	});
+  chrome.tabs.onRemoved.addListener(function(tabId,removeInfo) {
+    proxy.emit("closed",tabId);
+  });
   Changes.on("process",function(process){
     if(process===1){
       sites.initBack(function(){
@@ -29,8 +38,17 @@ define(function(require,exports,module) {
           site.save();
           site.parent.saveLocal();
           function tabHandler(tab){
+            proxy.on("closed",function(tabid){
+              console.trace()
+              if(tabid==tab.id){
+                var siteId=temp.pop();
+                if(siteId!==undefined){
+                  processSite(siteId);
+                }
+              }
+            })
             proxy.on(tab.id,function(port){//接收到tab.id事件，说明该页面已打开，可以通过port发送消息
-              var proxy=new EventProxy;
+              var proxyTab=new EventProxy;
               port.onMessage.addListener(function(msg){
                 switch (msg){
                   case "loginsuc":
@@ -39,22 +57,20 @@ define(function(require,exports,module) {
                   case "publishsuc":
                     site.status=3;
                     break;
+                  case "needVerifyCode":
+                    site.status=4;
+                    break;
                   case "":
-                    proxy.emit("tabLoaded");
+                    proxyTab.emit("tabLoaded");
                     break;
                 }
                 site.save();
                 site.parent.saveLocal()
               });
-              proxy.on("tabLoaded",function(){
-                site.pro(port,proxy);
+              proxyTab.on("tabLoaded",function(){
+                site.pro(port,proxyTab);
               });
-              proxy.on("closed",function(){
-                var siteId=temp.pop();
-                if(siteId!==undefined){
-                  processSite(siteId);
-                }
-              })
+
             });
           }
 					if(site.page.status===0){

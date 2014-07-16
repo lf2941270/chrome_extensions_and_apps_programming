@@ -42,7 +42,6 @@ define(function(require,exports,module){
         },{
           "name":"leixing",
           "replace":"leixing",
-          "type":"radio",
           "value":"经过格式化函数处理后的值"
         },{
           "name":"zhuce",
@@ -50,27 +49,22 @@ define(function(require,exports,module){
           "value":"经过格式化函数处理后的值"
         },{
           "name":"year",
-          "type":"select",
           "value":"0",
           "format":0
         },{
           "name":"month",
-          "type":"select",
           "value":"0",
           "format":1
         },{
           "name":"day",
-          "type":"select",
           "value":"0",
           "format":2
         },{
           "name":"hour",
-          "type":"select",
           "value":"0",
           "format":3
         },{
           "name":"minute",
-          "type":"select",
           "value":"0",
           "format":4
         }

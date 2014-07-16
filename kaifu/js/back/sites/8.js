@@ -1,12 +1,12 @@
 /*模板*/
 define(function(require,exports,module){
   module.exports={
-    title:"6103",
+    title:"78187网页游戏网",
 		status:0,//0表示等待队列中，1表示登陆中，2表示处理中，3表示处理完毕
     page:{
       "status":0,//0表示需要登陆，1表示已有cookie无需登陆或者网站本身不需要登录
-      "login":"http://www.6103.com/login.html",
-      "publish":"http://www.6103.com/fabukaifu.html"
+      "login":"http://kf.78187.com/tg/login.php",
+      "publish":"http://kf.78187.com/add_game_kf.html"
     },
     "user":{
       "default":false,
@@ -15,58 +15,67 @@ define(function(require,exports,module){
     },
     "loginForm":{
       "needVerifyCode":false,
-      "selector":".logintab form",//登录表单的jquery选择器
+      "selector":"form[action='/member/tg_do.php']",//登录表单的jquery选择器
       "content":[
         {
-          "name":"tcomuser1",
+          "name":"userid",
           "value":"值"
         },{
-          "name":"tcompass",
+          "name":"pwd",
           "value":"值"
-        },{
-          "name":"checkremember",
-          "remember":true//表示这个是记住密码表单
         }
       ],
       "submit":{//登录表单的提交方式
-        "selector":".loginbtn",
+        "selector":".butthmyes",
         "trigger":"click"
       }
     },
     "publishForm":{
       "content":[
         {
-          "name":"gamename",
+          "name":"title",
           "replace":"game",
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"ktmei",
-          "format":5,
+          "name":"year",
+          "value":"0",
+          "format":0
+        },{
+          "name":"month",
+          "value":"0",
+          "format":1
+        },{
+          "name":"day",
+          "value":"0",
+          "format":2
+        },{
+          "name":"hour",
+          "value":"0",
+          "format":3
+        },{
+          "name":"minute",
+          "value":"0",
+          "format":4
+        },{
+          "name":"qufu",
+          "format":6,
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"gametype",
+          "name":"leixing",
           "replace":"leixing",
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"qyfunum",
-          "replace":"server",
+          "name":"pingtai",
+          "replace":"company",
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"urllogin",
-          "replace":"site_url",
-          "value":"经过格式化函数处理后的值"
-        },{
-          "name":"urlreg",
+          "name":"zhuce",
           "replace":"main_url",
           "value":"经过格式化函数处理后的值"
-        },{
-          "name":"activity",
-          "replace":"info",
-          "value":"0"
         }
       ],
       "submit":{
-        "selector":".publish",
+        "selector":".tijiao",
         "trigger":"click"
       }
     }

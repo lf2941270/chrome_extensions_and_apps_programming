@@ -52,7 +52,7 @@
      border-right: 1px dotted #888888;
    }
    .step .process li .status{
-     width: 80px;
+     width: 180px;
    }
    .step .process li:nth-child(odd){
      background: #f2f2f2;
@@ -74,7 +74,7 @@
   </style>
 </head>
 <body>
-<h2>开服表自动发送插件 V0.0.1</h2>
+<h2>自动发开服表插件 V0.0.1</h2>
 <input type="button" value="清除数据" id="clear"/>
 <div id="main" ng-controller="controllerMain">
   <div class="step step-0">
@@ -123,6 +123,10 @@
       <p class="clearfix">
         <label for="site_url">官网地址：</label>
         <input type="text" id="site_url" name="site_url"/>
+      </p>
+      <p class="clearfix">
+        <label for="company">运营商：</label>
+        <input type="text" id="company" name="company" value="爱百娱"/>
       </p>
       <p class="clearfix">
         <label for="info">开服介绍：</label>

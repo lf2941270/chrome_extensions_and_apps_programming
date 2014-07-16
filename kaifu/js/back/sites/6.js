@@ -1,12 +1,12 @@
 /*模板*/
 define(function(require,exports,module){
   module.exports={
-    title:"6103",
+    title:"86wan",
 		status:0,//0表示等待队列中，1表示登陆中，2表示处理中，3表示处理完毕
     page:{
       "status":0,//0表示需要登陆，1表示已有cookie无需登陆或者网站本身不需要登录
-      "login":"http://www.6103.com/login.html",
-      "publish":"http://www.6103.com/fabukaifu.html"
+      "login":"http://kfht.86wan.com/member/",
+      "publish":"http://kfht.86wan.com/member/archives_add.php?channelid=17"
     },
     "user":{
       "default":false,
@@ -14,61 +14,50 @@ define(function(require,exports,module){
       "password":"baiyu0001"
     },
     "loginForm":{
-      "needVerifyCode":false,
-      "selector":".logintab form",//登录表单的jquery选择器
+      "needVerifyCode":true,
+      "selector":"form[action='index_do.php']",//登录表单的jquery选择器
       "content":[
         {
-          "name":"tcomuser1",
+          "name":"userid",
           "value":"值"
         },{
-          "name":"tcompass",
+          "name":"pwd",
           "value":"值"
         },{
-          "name":"checkremember",
-          "remember":true//表示这个是记住密码表单
+          "name":"keeptime",
+          "value":"2592000"
         }
       ],
       "submit":{//登录表单的提交方式
-        "selector":".loginbtn",
-        "trigger":"click"
+        "selector":"#form1",
+        "trigger":"submit"
       }
     },
     "publishForm":{
       "content":[
         {
-          "name":"gamename",
+          "name":"yxmc",
           "replace":"game",
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"ktmei",
-          "format":5,
+          "name":"time",
+          "format":9,
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"gametype",
-          "replace":"leixing",
+          "name":"fwqm",
+          "format":6,
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"qyfunum",
-          "replace":"server",
-          "value":"经过格式化函数处理后的值"
-        },{
-          "name":"urllogin",
-          "replace":"site_url",
-          "value":"经过格式化函数处理后的值"
-        },{
-          "name":"urlreg",
+          "name":"gwurl",
           "replace":"main_url",
           "value":"经过格式化函数处理后的值"
-        },{
-          "name":"activity",
-          "replace":"info",
-          "value":"0"
         }
       ],
       "submit":{
-        "selector":".publish",
-        "trigger":"click"
-      }
+        "selector":"addcontent",
+        "trigger":"submit"
+      },
+      "needVerifyCode":true
     }
   }
 });

@@ -46,10 +46,11 @@ define(function(require,exports,module){
     _setup:function(){
       this.loadLocal(this.proxy(function(){
         var control=this.find();
-				var record=this.init(control);
+        control._stepInit()
+			/*	var record=this.init(control);
         if(record!==undefined){
 					record._stepInit();
-        }
+        }*/
       }));
     }
   });
@@ -64,18 +65,14 @@ define(function(require,exports,module){
   });
   Control.include({
     _stepTo:function(num){
-			console.log('_stepTo '+num)
       this.step=num;
-      if(num<2){
-        this.process=0;
-      }
-      this.update();
+
+      this.save();
 			this.parent.saveLocal();
     },
     _processTo:function(num){
-      console.log('_processTo '+num)
       this.process=num;
-      this.update();
+      this.save();
       this.parent.saveLocal();
     }
   })

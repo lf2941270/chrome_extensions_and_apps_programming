@@ -32,19 +32,20 @@ define(function(require,exports,module){
     },5:function(){
       return this.year+"-"+this.month.fill(2)+"-"+this.date.fill(2)+" "+this.hour.fill(2)+":"+this.minute.fill(2)+":"+this.second.fill(2);
     },6:function(){
-      return this.fullServerName;
+      return this.fullServerName;//返回服务器全名：双线？服
     },7:function(){
 			return this.year+"-"+this.month.fill(2)+"-"+this.date.fill(2);
 		},8:function(){
 			return this.hour.fill(2);
-		}
+		},9:function(){
+      return this.year+"-"+this.month.fill(2)+"-"+this.date.fill(2)+" "+this.hour.fill(2)+":"+this.minute.fill(2);
+    }
   },true);
 
   var formatMap;
   module.exports=function(input,replaceform){
     formatMap=new FormatMap(input,replaceform);
 
-    console.log(input);
 
     if(input.format===undefined){//如果没有format函数，则直接将value值设为对应的replaceform中的值
       if(!input.replace){//如果没有replace，则无需提前处理，直接返回
@@ -54,7 +55,6 @@ define(function(require,exports,module){
     }else{//否则用formatMap中对应format键的函数来对input进行处理
       input.value=formatMap[input.format]();
     }
-    console.log(input)
     return input;
   }
 });

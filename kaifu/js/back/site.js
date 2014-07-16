@@ -44,7 +44,6 @@ define(function(require,exports,module){
 					publishForm= _.records[id].publishForm;
 					for(var i= 0,len=publishForm.content.length;i<len;i++){
 						input=publishForm.content[i];
-            console.log(input)
 						publishForm.content[i]=format(input,replaceform);
 					}
 					_.records[id].publishForm=publishForm;
@@ -76,9 +75,8 @@ define(function(require,exports,module){
 				})
 			}else if(this.status===3){
         //关闭标签页的，暂时注释掉
-        /*chrome.tabs.remove(port.sender.tab.id, function(){
-          proxy.emit("closed")
-        });*/
+        chrome.tabs.remove(port.sender.tab.id, function(){
+        });
       }
     }
   })
