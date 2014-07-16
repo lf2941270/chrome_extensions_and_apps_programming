@@ -8,13 +8,14 @@ define(function(require,exports,module) {
 	var maxTabsNum=8;//同时打开的标签页的最大值
 
 	chrome.extension.onConnect.addListener(function(port) {
-    if(port.sender.tab){
+		if(port.sender.tab.url==="chrome-extension://edcbnmgbaolhoocpehjjhlnoilnldifj/js/popup/index.html"){
+			port.onMessage.addListener(function(msg){
+				console.log(msg)
+				proxy.emit("selectTab",msg.selectTab);
+			})
+		}
+    else{
       proxy.emit(port.sender.tab.id,port);
-    }else{
-      port.onMessage.addListener(function(msg){
-        console.log(msg)
-        proxy.emit("selectTab",msg.selectTab);
-      })
     }
 	});
   chrome.tabs.onRemoved.addListener(function(tabId,removeInfo) {
@@ -70,9 +71,20 @@ define(function(require,exports,module) {
               proxyTab.on("tabLoaded",function(){
                 site.pro(port,proxyTab);
               });
-
+							proxy.on("selectTab",function(title){
+								if(title===site.title){
+									try{
+										chrome.tabs.update(port.sender.tab.id,{
+											selected:true
+										})
+									}catch (e){
+										console.error(e);
+									}
+								}
+							})
             });
           }
+
 					if(site.page.status===0){
 						chrome.tabs.create({
 							url: sites.records[id].page.login,

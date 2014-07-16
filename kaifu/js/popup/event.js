@@ -3,8 +3,7 @@ define(function(require,exports,module){
   var ReplaceForm=require('../back/replaceform');
   var sites=require('../back/site');
   var Changes=require('../back/changes');
-  var port=require('./port');
-  console.log(port);
+
   module.exports={
     event:{
       0:function(){
@@ -111,7 +110,7 @@ define(function(require,exports,module){
               4:"需要手动填写验证码"
             }
 						for(var id in sites.records){
-              html+="<li>"
+              html+="<li title='点击切换到\""+sites.records[id].title+"\"标签页'>"
               html+="<span class='title'>"+sites.records[id].title+":</span>"
               html+="<span class='status'>"+statusMap[sites.records[id].status]+"</span>"
               html+="</li>"
@@ -120,7 +119,7 @@ define(function(require,exports,module){
               height:$(this).height()
             });
             $(".process",".step-2").delegate("li","click",function(){
-              port.postMessage({"selectTab":$(this).find(".title").html().replace(":","")});
+              require('./port').postMessage({"selectTab":$(this).find(".title").html().replace(":","")});
             })
           })
         }
