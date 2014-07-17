@@ -8,7 +8,7 @@ define(function(require,exports,module) {
 	var maxTabsNum=8;//同时打开的标签页的最大值
 
 	chrome.extension.onConnect.addListener(function(port) {
-		if(port.sender.tab.url==="chrome-extension://edcbnmgbaolhoocpehjjhlnoilnldifj/js/popup/index.html"){
+		if(!(port.sender.tab)||(port.sender.tab&&port.sender.tab.url==="chrome-extension://edcbnmgbaolhoocpehjjhlnoilnldifj/js/popup/index.html")){
 			port.onMessage.addListener(function(msg){
 				console.log(msg)
 				proxy.emit("selectTab",msg.selectTab);

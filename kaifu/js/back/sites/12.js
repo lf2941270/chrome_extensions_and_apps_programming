@@ -1,48 +1,59 @@
 /*模板*/
 define(function(require,exports,module){
   module.exports={
-    title:"3761游戏网",
+    title:"5336",
 		status:0,//0表示等待队列中，1表示登陆中，2表示处理中，3表示处理完毕
     page:{
       "status":0,//0表示需要登陆，1表示已有cookie无需登陆或者网站本身不需要登录
-      "login":"http://www.3761.com/member/",
-      "publish":"http://www.3761.com/member/kaifu_add.php"
+      "login":"http://www.5336.com/yys",
+      "publish":"http://www.5336.com/yys/yys_main"
     },
     "user":{
       "default":false,
-      "username":"baiyu0001",
+      "username":"baiyu",
       "password":"baiyu0001"
     },
     "loginForm":{
       "needVerifyCode":true,
-      "selector":"form[action='index_do.php']",//登录表单的jquery选择器
+      "selector":"form[action='/yys/index/login']",//登录表单的jquery选择器
       "content":[
         {
-          "name":"userid",
+          "name":"yys_name",
           "value":"值"
         },{
-          "name":"pwd",
+          "name":"yys_pw",
           "value":"值"
         }
       ],
       "submit":{//登录表单的提交方式
-        "selector":".sub",
-        "trigger":"click"
+        "selector":"form[action='/yys/index/login']",
+        "trigger":"submit"
       }
     },
     "publishForm":{
       "content":[
         {
-          "name":"title",
+          "name":"game_name",
           "replace":"game",
           "value":"经过格式化函数处理后的值"
+        },{
+          "name":"num",
+          "value":"0",
+          "replace":"server"
         },{
           "name":"riqi",
           "value":"0",
           "format":5
         },{
+          "name":"typeid",
+          "value":"5"
+        },{
           "name":"fuwu",
           "format":6,
+          "value":"经过格式化函数处理后的值"
+        },{
+          "name":"pingtai",
+          "replace":"company",
           "value":"经过格式化函数处理后的值"
         },{
           "name":"fuwuurl",

@@ -8,5 +8,8 @@ define(function(require,exports,module){
   sites.push(require('./6'));
   sites.push(require('./7'));
   sites.push(require('./8'));
+  sites.push(require('./9'));
+  sites.push(require('./10'));
+  sites.push(require('./11'));
   module.exports=sites;
 });

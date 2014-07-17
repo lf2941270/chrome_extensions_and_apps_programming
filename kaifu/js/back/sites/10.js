@@ -1,12 +1,12 @@
 /*模板*/
 define(function(require,exports,module){
   module.exports={
-    title:"3761游戏网",
+    title:"178游戏网",
 		status:0,//0表示等待队列中，1表示登陆中，2表示处理中，3表示处理完毕
     page:{
       "status":0,//0表示需要登陆，1表示已有cookie无需登陆或者网站本身不需要登录
-      "login":"http://www.3761.com/member/",
-      "publish":"http://www.3761.com/member/kaifu_add.php"
+      "login":"http://www.178zmy.com/member/login.php",
+      "publish":"http://www.178zmy.com/member/kaifu.php"
     },
     "user":{
       "default":false,
@@ -26,7 +26,7 @@ define(function(require,exports,module){
         }
       ],
       "submit":{//登录表单的提交方式
-        "selector":".sub",
+        "selector":".loginbtn",
         "trigger":"click"
       }
     },
@@ -41,17 +41,33 @@ define(function(require,exports,module){
           "value":"0",
           "format":5
         },{
-          "name":"fuwu",
+          "name":"server",
           "format":6,
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"fuwuurl",
+          "name":"theme",
+          "replace":"leixing",
+          "value":"经过格式化函数处理后的值"
+        },{
+          "name":"operators",
+          "replace":"company",
+          "value":"经过格式化函数处理后的值"
+        },{
+          "name":"login",
           "replace":"main_url",
+          "value":"经过格式化函数处理后的值"
+        },{
+          "name":"linghao",
+          "replace":"main_url",
+          "value":"经过格式化函数处理后的值"
+        },{
+          "name":"gifttitle",
+          "replace":"info",
           "value":"经过格式化函数处理后的值"
         }
       ],
       "submit":{
-        "selector":".button2",
+        "selector":".publish",
         "trigger":"click"
       },
       "needVerifyCode":true
