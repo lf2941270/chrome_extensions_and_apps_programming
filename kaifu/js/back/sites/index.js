@@ -11,5 +11,16 @@ define(function(require,exports,module){
   sites.push(require('./9'));
   sites.push(require('./10'));
   sites.push(require('./11'));
+  sites.push(require('./12'));
+  sites.push(require('./13'));
+  sites.push(require('./14'));
+  sites.push(require('./15'));
+  sites.push(require('./16'));
+  sites.push(require('./17'));
+  sites.push(require('./18'));
+  sites.push(require('./19'));
+  sites.push(require('./20'));
+  sites.push(require('./21'));
+  sites.push(require('./22'));
   module.exports=sites;
 });

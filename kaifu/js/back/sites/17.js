@@ -1,73 +1,82 @@
 /*模板*/
 define(function(require,exports,module){
   module.exports={
-    title:"5336",
+    title:"妖气网",
 		status:0,//0表示等待队列中，1表示登陆中，2表示处理中，3表示处理完毕
     page:{
       "status":0,//0表示需要登陆，1表示已有cookie无需登陆或者网站本身不需要登录
-      "login":"http://www.5336.com/yys",
-      "publish":"http://www.5336.com/yys/yys_main"
+      "login":"http://kf.yao7w.com/index.php",
+      "publish":"http://kf.yao7w.com/webfb.php"
     },
     "user":{
       "default":false,
-      "username":"baiyu",
+      "username":"baiyu0001",
       "password":"baiyu0001"
     },
     "loginForm":{
       "needVerifyCode":true,
-      "selector":"form[action='/yys/index/login']",//登录表单的jquery选择器
+      "selector":"form[action='dl.php']",//登录表单的jquery选择器
       "content":[
         {
-          "name":"yys_name",
+          "name":"name",
           "value":"值"
         },{
-          "name":"yys_pw",
+          "name":"pass",
           "value":"值"
         }
       ],
       "submit":{//登录表单的提交方式
-        "selector":"form[action='/yys/index/login']",
+        "selector":"form[action='dl.php']",
         "trigger":"submit"
       }
     },
     "publishForm":{
       "content":[
         {
-          "name":"game_name",
+          "name":"name",
           "replace":"game",
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"num",
-          "value":"0",
-          "replace":"server"
+          "name":"ip",
+          "replace":"leixing",
+          "value":"经过格式化函数处理后的值"
         },{
-          "name":"begin_time",
+          "name":"len",
           "value":"0",
-          "format":11
+          "format":6
         },{
-          "name":"hour",
+          "name":"y",
+          "value":"0",
+          "format":0
+        },{
+          "name":"m",
+          "value":"0",
+          "format":1
+        },{
+          "name":"d",
+          "value":"0",
+          "format":2
+        },{
+          "name":"h",
           "value":"0",
           "format":3
         },{
-          "name":"minute",
+          "name":"i",
           "value":"0",
           "format":4
         },{
-          "name":"fu_order",
-          "value":"pt"
+          "name":"js",
+          "value":"0",
+          "replace":"info"
         },{
-          "name":"fu_kfhd",
-          "replace":"info",
-          "value":"经过格式化函数处理后的值"
-        },{
-          "name":"official_website",
+          "name":"url",
           "replace":"main_url",
           "value":"经过格式化函数处理后的值"
         }
       ],
       "submit":{
-        "selector":"#contorl_kf",
-        "trigger":"click"
+        "selector":"form[action='fbok.php?k=webk']",
+        "trigger":"submit"
       }
     }
   }

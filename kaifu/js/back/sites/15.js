@@ -1,72 +1,65 @@
+
 /*模板*/
 define(function(require,exports,module){
   module.exports={
-    title:"5336",
+    title:"游侠网",
 		status:0,//0表示等待队列中，1表示登陆中，2表示处理中，3表示处理完毕
     page:{
       "status":0,//0表示需要登陆，1表示已有cookie无需登陆或者网站本身不需要登录
-      "login":"http://www.5336.com/yys",
-      "publish":"http://www.5336.com/yys/yys_main"
+      "login":"http://webgame.ali213.net/webgame_admin/?topnav=1",
+      "publish":"http://webgame.ali213.net/webgame_admin/kfAdd.php"
     },
     "user":{
       "default":false,
-      "username":"baiyu",
+      "username":"1213574860@qq.com",
       "password":"baiyu0001"
     },
     "loginForm":{
-      "needVerifyCode":true,
-      "selector":"form[action='/yys/index/login']",//登录表单的jquery选择器
+      "needVerifyCode":false,
+      "selector":"form[action='cekform.php']",//登录表单的jquery选择器
       "content":[
         {
-          "name":"yys_name",
+          "name":"logname",
           "value":"值"
         },{
-          "name":"yys_pw",
+          "name":"logpass",
           "value":"值"
         }
       ],
       "submit":{//登录表单的提交方式
-        "selector":"form[action='/yys/index/login']",
+        "selector":"form[action='cekform.php']",
         "trigger":"submit"
       }
     },
     "publishForm":{
       "content":[
         {
-          "name":"game_name",
+          "name":"gamename",
           "replace":"game",
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"num",
+          "name":"servername",
           "value":"0",
           "replace":"server"
         },{
-          "name":"begin_time",
+          "name":"startdate",
           "value":"0",
-          "format":11
+          "format":7
         },{
-          "name":"hour",
+          "name":"hourss",
           "value":"0",
           "format":3
         },{
-          "name":"minute",
-          "value":"0",
-          "format":4
-        },{
-          "name":"fu_order",
-          "value":"pt"
-        },{
-          "name":"fu_kfhd",
-          "replace":"info",
-          "value":"经过格式化函数处理后的值"
-        },{
-          "name":"official_website",
+          "name":"regurl",
           "replace":"main_url",
           "value":"经过格式化函数处理后的值"
+        },{
+          "name":"money",
+          "value":"0"
         }
       ],
       "submit":{
-        "selector":"#contorl_kf",
+        "selector":"#submit",
         "trigger":"click"
       }
     }

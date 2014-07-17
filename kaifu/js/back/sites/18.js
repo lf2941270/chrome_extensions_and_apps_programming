@@ -1,49 +1,65 @@
 /*模板*/
 define(function(require,exports,module){
   module.exports={
-    title:"5336",
+    title:"9v8v",
 		status:0,//0表示等待队列中，1表示登陆中，2表示处理中，3表示处理完毕
     page:{
       "status":0,//0表示需要登陆，1表示已有cookie无需登陆或者网站本身不需要登录
-      "login":"http://www.5336.com/yys",
-      "publish":"http://www.5336.com/yys/yys_main"
+      "login":"http://kaifu.9v8v.com/login.html",
+      "publish":"http://kaifu.9v8v.com/add_game_kf.html"
     },
     "user":{
       "default":false,
-      "username":"baiyu",
+      "username":"baiyu0001",
       "password":"baiyu0001"
     },
     "loginForm":{
       "needVerifyCode":true,
-      "selector":"form[action='/yys/index/login']",//登录表单的jquery选择器
+      "selector":"form[action='/member/tg_do.php']",//登录表单的jquery选择器
       "content":[
         {
-          "name":"yys_name",
+          "name":"userid",
           "value":"值"
         },{
-          "name":"yys_pw",
+          "name":"pwd",
           "value":"值"
         }
       ],
       "submit":{//登录表单的提交方式
-        "selector":"form[action='/yys/index/login']",
+        "selector":"form[action='/member/tg_do.php']",
         "trigger":"submit"
       }
     },
     "publishForm":{
       "content":[
         {
-          "name":"game_name",
+          "name":"title",
           "replace":"game",
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"num",
-          "value":"0",
-          "replace":"server"
+          "name":"leixing",
+          "replace":"leixing",
+          "value":"经过格式化函数处理后的值"
         },{
-          "name":"begin_time",
+          "name":"pingtai",
+          "replace":"company",
+          "value":"经过格式化函数处理后的值"
+        },{
+          "name":"qufu",
           "value":"0",
-          "format":11
+          "format":6
+        },{
+          "name":"year",
+          "value":"0",
+          "format":0
+        },{
+          "name":"month",
+          "value":"0",
+          "format":1
+        },{
+          "name":"day",
+          "value":"0",
+          "format":2
         },{
           "name":"hour",
           "value":"0",
@@ -53,20 +69,13 @@ define(function(require,exports,module){
           "value":"0",
           "format":4
         },{
-          "name":"fu_order",
-          "value":"pt"
-        },{
-          "name":"fu_kfhd",
-          "replace":"info",
-          "value":"经过格式化函数处理后的值"
-        },{
-          "name":"official_website",
+          "name":"zhuce",
           "replace":"main_url",
           "value":"经过格式化函数处理后的值"
         }
       ],
       "submit":{
-        "selector":"#contorl_kf",
+        "selector":".tijiao",
         "trigger":"click"
       }
     }

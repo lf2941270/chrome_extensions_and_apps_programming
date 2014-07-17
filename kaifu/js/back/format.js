@@ -41,6 +41,8 @@ define(function(require,exports,module){
       return this.year+"-"+this.month.fill(2)+"-"+this.date.fill(2)+" "+this.hour.fill(2)+":"+this.minute.fill(2);
     },10:function(){
       return this.year+this.month.fill(2)+this.date.fill(2);
+    },11:function(){
+      return this.year+"-"+this.month+"-"+this.date;
     }
   },true);
 

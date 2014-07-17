@@ -1,73 +1,69 @@
 /*模板*/
 define(function(require,exports,module){
   module.exports={
-    title:"5336",
+    title:"我也玩",
 		status:0,//0表示等待队列中，1表示登陆中，2表示处理中，3表示处理完毕
     page:{
       "status":0,//0表示需要登陆，1表示已有cookie无需登陆或者网站本身不需要登录
-      "login":"http://www.5336.com/yys",
-      "publish":"http://www.5336.com/yys/yys_main"
+      "login":"http://kf.woyewan.com/member/login.php?gourl=%2Fmember%2Fadd_kaifu.php",
+      "publish":"http://kf.woyewan.com/member/add_kaifu.php"
     },
     "user":{
       "default":false,
-      "username":"baiyu",
+      "username":"baiyu0001",
       "password":"baiyu0001"
     },
     "loginForm":{
-      "needVerifyCode":true,
-      "selector":"form[action='/yys/index/login']",//登录表单的jquery选择器
+      "needVerifyCode":false,
+      "selector":"form[action='/member/add_kaifu.php']",//登录表单的jquery选择器
       "content":[
         {
-          "name":"yys_name",
+          "name":"userid",
           "value":"值"
         },{
-          "name":"yys_pw",
+          "name":"pwd",
           "value":"值"
+        },{
+          "name":"keeptime",
+          "value":"2592000"
         }
       ],
       "submit":{//登录表单的提交方式
-        "selector":"form[action='/yys/index/login']",
+        "selector":"form[action='/member/add_kaifu.php']",
         "trigger":"submit"
       }
     },
     "publishForm":{
       "content":[
         {
-          "name":"game_name",
+          "name":"title",
           "replace":"game",
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"num",
-          "value":"0",
-          "replace":"server"
-        },{
-          "name":"begin_time",
-          "value":"0",
-          "format":11
-        },{
-          "name":"hour",
-          "value":"0",
-          "format":3
-        },{
-          "name":"minute",
-          "value":"0",
-          "format":4
-        },{
-          "name":"fu_order",
-          "value":"pt"
-        },{
-          "name":"fu_kfhd",
-          "replace":"info",
+          "name":"yunying",
+          "replace":"company",
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"official_website",
+          "name":"servername",
+          "value":"0",
+          "format":6
+        },{
+          "name":"testtime",
+          "value":"0",
+          "format":9
+        },{
+          "name":"website",
+          "replace":"site_url",
+          "value":"经过格式化函数处理后的值"
+        },{
+          "name":"regaddress",
           "replace":"main_url",
           "value":"经过格式化函数处理后的值"
         }
       ],
       "submit":{
-        "selector":"#contorl_kf",
-        "trigger":"click"
+        "selector":"form[action='add_kaifu.php']",
+        "trigger":"submit"
       }
     }
   }
