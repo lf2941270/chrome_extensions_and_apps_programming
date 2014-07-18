@@ -62,7 +62,6 @@ define(function(require,exports,module){
   });
   Site.include({
     pro:function(port,proxy){
-
       if(this.status===1){//说明尚未登录过
         port.postMessage({
           "event":"tryLogin",
@@ -75,8 +74,8 @@ define(function(require,exports,module){
 				})
 			}else if(this.status===3){
         //关闭标签页的，暂时注释掉
-        chrome.tabs.remove(port.sender.tab.id, function(){
-        });
+        /*chrome.tabs.remove(port.sender.tab.id, function(){
+        });*/
       }
     }
   })

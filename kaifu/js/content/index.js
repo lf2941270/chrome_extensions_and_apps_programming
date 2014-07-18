@@ -1,5 +1,5 @@
 var port= chrome.extension.connect();
-port.postMessage("");//先发个空消息说明页面已载入
+
 var proxy=new EventProxy;
 
 var handleMap={
@@ -24,9 +24,9 @@ var handleMap={
   "publish":function(obj){
     var input;
 		if(location.href!==obj.page.publish){
-      port.postMessage("loginsuc");
+      console.log(location.href)
       location.href=obj.page.publish;//跳转到发布页面
-
+      port.postMessage("loginsuc");
     }
 		for(var i in obj.publishForm.content){
 
@@ -40,6 +40,7 @@ var handleMap={
           inputEle=$('#'+input.id);
         }
         console.log(inputEle)
+        inputEle.trigger("focus");
         if(inputEle.attr("type")==="radio"){
           inputEle.each(function(){
             if($(this).val()===input.value){
@@ -48,9 +49,8 @@ var handleMap={
               $(this).attr("checked",false);
             }
           })
-        }else if(inputEle.attr("type")==="select"){
-
-          inputEle.each(function(){
+        }else if(input.text===true){
+          inputEle.find("option").each(function(){
             if($(this).text()===input.value){
               $(this).attr("selected",true);
             }else{
@@ -61,7 +61,9 @@ var handleMap={
         else{
           inputEle.val(input.value);
         }
-			}
+        inputEle.trigger("blur");
+
+      }
 
 			/*if(obj.loginForm.content[i].remember===true){
 			 $('[name="'+obj.loginForm.content[i].name+'"]',obj.loginForm.selector).attr("checked","checked");//勾选记住密码
@@ -70,18 +72,22 @@ var handleMap={
 			 }*/
 		}
     //发送成功消息
-
-    if(obj.publishForm.needVerifyCode===true){
-      port.postMessage("needVerifyCode");
-    }else{
-      port.postMessage("publishsuc");
-      //提交表单的，暂时注释掉，改成
+    if($(obj.publishForm.submit.selector).length>0){
+      if(obj.publishForm.needVerifyCode===true){
+        port.postMessage("needVerifyCode");
+      }else{
+        port.postMessage("publishsuc");
+        //提交表单的，暂时注释掉，改成
 //    location.reload()
 //    $(obj.publishForm.submit.selector).trigger(obj.publishForm.submit.trigger);
+      }
     }
 
   }
 }
+$(function(){
+  port.postMessage("");//先发个空消息说明页面已载入
+})
 for(var event in handleMap){
   proxy.on(event,handleMap[event]);
 }
@@ -92,5 +98,8 @@ port.onMessage.addListener(function(msg){
    *   obj:""
    * }
    * */
-   proxy.emit(msg.event,msg.obj);
+    console.log("=============onMessage=============");
+  console.log(msg.event)
+  console.log(msg.obj)
+    proxy.emit(msg.event,msg.obj);
 });

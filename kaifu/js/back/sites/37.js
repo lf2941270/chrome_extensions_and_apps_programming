@@ -1,12 +1,12 @@
 /*模板*/
 define(function(require,exports,module){
   module.exports={
-    title:"1717pk",
+    title:"19yxw",
 		status:0,//0表示等待队列中，1表示登陆中，2表示处理中，3表示处理完毕
     page:{
       "status":0,//0表示需要登陆，1表示已有cookie无需登陆或者网站本身不需要登录
-      "login":"http://tougao.1717pk.com/index.php",
-      "publish":"http://tougao.1717pk.com/index.php?tp=kfgame&op=add"
+      "login":"http://top.19yxw.com/fabu.asp",
+      "publish":"http://top.19yxw.com/fabu.asp?action=kaifu"
     },
     "user":{
       "default":false,
@@ -14,56 +14,72 @@ define(function(require,exports,module){
       "password":"baiyu0001"
     },
     "loginForm":{
-      "needVerifyCode":false,
-      "selector":"form[action='index.php']",//登录表单的jquery选择器
+      "needVerifyCode":true,
+      "selector":"form[action='/fabu.asp?cy=login']",//登录表单的jquery选择器
       "content":[
         {
-          "name":"username",
+          "name":"user",
           "value":"值"
         },{
-          "name":"password",
+          "name":"pass",
           "value":"值"
         }
       ],
       "submit":{//登录表单的提交方式
-        "selector":"form[action='index.php']",
+        "selector":"form[action='/fabu.asp?cy=login']",
         "trigger":"submit"
       }
     },
     "publishForm":{
       "content":[
         {
-          "name":"gamename_xfb",
+          "name":"game",
           "replace":"game",
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"yuyingshang_xfb",
+          "name":"leixing",
+          "replace":"leixing",
+          "value":"经过格式化函数处理后的值"
+        },{
+          "name":"kfgs",
           "replace":"company",
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"xinfuming_xfb",
-          "replace":"server",
+          "name":"yygs",
+          "replace":"company",
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"xinfuming_bk_xfb",
-          "value":"0",
-          "format":6
+          "name":"server",
+          "format":6,
+          "value":"经过格式化函数处理后的值"
         },{
-          "name":"usetime",
+          "name":"year",
           "value":"0",
-          "format":7
+          "format":0
         },{
-          "name":"h",
+          "name":"month",
+          "value":"0",
+          "format":1
+        },{
+          "name":"day",
+          "value":"0",
+          "format":2
+        },{
+          "name":"hour",
           "value":"0",
           "format":3
         },{
-          "name":"kaishi_xfb",
+          "name":"minute",
           "value":"0",
-          "replace":"main_url"
+          "format":4
+        },{
+          "name":"url",
+          "replace":"main_url",
+          "value":"经过格式化函数处理后的值"
         }
       ],
       "submit":{
-        "selector":"form[action='index.php?tp=kfgame']",
+        "selector":"[action='?cy=kaifu']",
         "trigger":"submit"
       }
     }

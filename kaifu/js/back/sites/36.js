@@ -1,12 +1,12 @@
 /*模板*/
 define(function(require,exports,module){
   module.exports={
-    title:"1717pk",
+    title:"kaifu7",
 		status:0,//0表示等待队列中，1表示登陆中，2表示处理中，3表示处理完毕
     page:{
       "status":0,//0表示需要登陆，1表示已有cookie无需登陆或者网站本身不需要登录
-      "login":"http://tougao.1717pk.com/index.php",
-      "publish":"http://tougao.1717pk.com/index.php?tp=kfgame&op=add"
+      "login":"http://kaifu7.com/admins/login.aspx",
+      "publish":"http://kaifu7.com/Admins/KFB_Eide.aspx"
     },
     "user":{
       "default":false,
@@ -14,56 +14,51 @@ define(function(require,exports,module){
       "password":"baiyu0001"
     },
     "loginForm":{
-      "needVerifyCode":false,
-      "selector":"form[action='index.php']",//登录表单的jquery选择器
+      "needVerifyCode":true,
+      "selector":"form[action='login.aspx']",//登录表单的jquery选择器
       "content":[
         {
-          "name":"username",
+          "name":"Username",
           "value":"值"
         },{
-          "name":"password",
+          "name":"Password",
           "value":"值"
         }
       ],
       "submit":{//登录表单的提交方式
-        "selector":"form[action='index.php']",
+        "selector":"form[action='login.aspx']",
         "trigger":"submit"
       }
     },
     "publishForm":{
       "content":[
         {
-          "name":"gamename_xfb",
+          "name":"Game_Name",
           "replace":"game",
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"yuyingshang_xfb",
-          "replace":"company",
+          "name":"txtkftime",
+          "format":7,
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"xinfuming_xfb",
-          "replace":"server",
+          "name":"seltime",
+          "format":8,
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"xinfuming_bk_xfb",
-          "value":"0",
-          "format":6
+          "name":"txtServerName",
+          "format":6,
+          "value":"经过格式化函数处理后的值"
         },{
-          "name":"usetime",
-          "value":"0",
-          "format":7
+          "name":"GameUrl",
+          "replace":"main_url",
+          "value":"经过格式化函数处理后的值"
         },{
-          "name":"h",
-          "value":"0",
-          "format":3
-        },{
-          "name":"kaishi_xfb",
-          "value":"0",
-          "replace":"main_url"
+          "name":"zd_yes_no",
+          "value":"否"
         }
       ],
       "submit":{
-        "selector":"form[action='index.php?tp=kfgame']",
+        "selector":"[action='KFB_Eide.aspx']",
         "trigger":"submit"
       }
     }

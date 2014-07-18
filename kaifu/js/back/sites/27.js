@@ -35,11 +35,11 @@ define(function(require,exports,module){
         },{
           "name":"hour",
           "value":"0",
-          "format":12
+          "format":8
         },{
           "name":"second",
           "value":"0",
-          "format":13
+          "format":4
         },{
           "name":"dev",
           "value":"0",

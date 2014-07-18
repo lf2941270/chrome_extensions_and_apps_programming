@@ -35,7 +35,8 @@ define(function(require,exports,module){
         {
           "name":"game_name",
           "replace":"game",
-          "value":"经过格式化函数处理后的值"
+          "value":"经过格式化函数处理后的值",
+          "text":true
         },{
           "name":"syear",
           "value":"0",

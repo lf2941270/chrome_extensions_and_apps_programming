@@ -99,6 +99,7 @@ define(function(require,exports,module){
         }
         function updateView(){
           var html="";
+          var num=0;
 					/*console.log("===============sites================");
 					console.log(sites)*/
           sites.loadLocal(function(){
@@ -111,6 +112,7 @@ define(function(require,exports,module){
             }
 						for(var id in sites.records){
               html+="<li title='点击切换到\""+sites.records[id].title+"\"标签页'>"
+              html+="<span class='num'>"+(++num)+"</span>"
               html+="<span class='title'>"+sites.records[id].title+":</span>"
               html+="<span class='status'>"+statusMap[sites.records[id].status]+"</span>"
               html+="</li>"

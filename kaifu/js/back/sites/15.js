@@ -36,7 +36,8 @@ define(function(require,exports,module){
         {
           "name":"gamename",
           "replace":"game",
-          "value":"经过格式化函数处理后的值"
+          "value":"经过格式化函数处理后的值",
+          "text":true
         },{
           "name":"servername",
           "value":"0",
