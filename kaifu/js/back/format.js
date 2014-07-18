@@ -44,7 +44,7 @@ define(function(require,exports,module){
     },11:function(){
       return this.year+"-"+this.month+"-"+this.date;
     },12:function(){
-
+      return this.year+"年"+this.month.fill(2)+"月"+this.date.fill(2)+"日 "+this.hour.fill(2)+"时"+this.minute.fill(2)+"分"+this.second.fill(2)+"秒";
     },13:function(){
 
     },14:function(){
