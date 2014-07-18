@@ -33,7 +33,12 @@ var handleMap={
 			input=obj.publishForm.content[i];
       console.log(input)
 			if(!input.type){
-        var inputEle=$('[name="'+input.name+'"]');
+        var inputEle;
+        if(input.name){
+          inputEle=$('[name="'+input.name+'"]');
+        }else if(input.id){
+          inputEle=$('#'+input.id);
+        }
         console.log(inputEle)
         if(inputEle.attr("type")==="radio"){
           inputEle.each(function(){

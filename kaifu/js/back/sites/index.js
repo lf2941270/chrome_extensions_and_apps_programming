@@ -22,5 +22,13 @@ define(function(require,exports,module){
   sites.push(require('./20'));
   sites.push(require('./21'));
   sites.push(require('./22'));
+  sites.push(require('./23'));
+  sites.push(require('./24'));
+  sites.push(require('./25'));
+  sites.push(require('./26'));
+  sites.push(require('./27'));
+  sites.push(require('./28'));
+  sites.push(require('./29'));
+  sites.push(require('./30'));
   module.exports=sites;
 });

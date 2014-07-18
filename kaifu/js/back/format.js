@@ -43,6 +43,12 @@ define(function(require,exports,module){
       return this.year+this.month.fill(2)+this.date.fill(2);
     },11:function(){
       return this.year+"-"+this.month+"-"+this.date;
+    },12:function(){
+      return this.hour.fill(2)+"点";
+    },13:function(){
+      return this.minute.fill(2)+"分";
+    },14:function(){
+      return this.minute;
     }
   },true);
 
