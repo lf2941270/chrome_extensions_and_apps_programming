@@ -1,12 +1,12 @@
 /*模板*/
 define(function(require,exports,module){
   module.exports={
-    title:"神游",
+    title:"40407",
 		status:0,//0表示等待队列中，1表示登陆中，2表示处理中，3表示处理完毕
     page:{
       "status":0,//0表示需要登陆，1表示已有cookie无需登陆或者网站本身不需要登录
-      "login":"http://kf.ishenyou.com/app/client.php",
-      "publish":"http://kf.ishenyou.com/app/add-server.php?t=f"
+      "login":"http://zizhu.40407.com/login.php",
+      "publish":"http://zizhu.40407.com/kf/kf_add.php"
     },
     "user":{
       "default":false,
@@ -15,47 +15,55 @@ define(function(require,exports,module){
     },
     "loginForm":{
       "needVerifyCode":false,
-      "selector":"form[action='3?action=login']",//登录表单的jquery选择器
+      "selector":"form[action='login.php']",//登录表单的jquery选择器
       "content":[
         {
-          "name":"user_name",
+          "name":"uname",
           "value":"值"
         },{
-          "name":"password",
+          "name":"pwd",
           "value":"值"
         }
       ],
       "submit":{//登录表单的提交方式
-        "selector":"form[action='?action=login']",
+        "selector":"form[action='login.php']",
         "trigger":"submit"
       }
     },
     "publishForm":{
       "content":[
         {
-          "name":"game_name",
+          "name":"gamename",
           "replace":"game",
-          "value":"经过格式化函数处理后的值",
-          "text":true
+          "value":"经过格式化函数处理后的值"
         },{
-          "name":"game_time",
-          "format":12
+          "name":"kftime",
+          "value":"0",
+          "format":7
         },{
-          "name":"platform_name",
-          "replace":"company",
-          "text":true
+          "name":"kfhour",
+          "value":"0",
+          "format":8
         },{
-          "name":"server_name",
+          "name":"kfminute",
+          "value":"0",
+          "format":4
+        },{
+          "name":"servernum",
+          "replace":"server",
+          "value":"经过格式化函数处理后的值"
+        },{
+          "name":"servername",
           "format":6,
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"game_url",
+          "name":"regurl",
           "replace":"main_url",
           "value":"经过格式化函数处理后的值"
         }
       ],
       "submit":{
-        "selector":"#form1",
+        "selector":"form[action='kf_add.php']",
         "trigger":"submit"
       }
     }

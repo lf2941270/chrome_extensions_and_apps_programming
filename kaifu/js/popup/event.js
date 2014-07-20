@@ -100,6 +100,7 @@ define(function(require,exports,module){
         function updateView(){
           var html="";
           var num=0;
+					var sucNum=0;
 					/*console.log("===============sites================");
 					console.log(sites)*/
           sites.loadLocal(function(){
@@ -116,13 +117,20 @@ define(function(require,exports,module){
               html+="<span class='title'>"+sites.records[id].title+":</span>"
               html+="<span class='status'>"+statusMap[sites.records[id].status]+"</span>"
               html+="</li>"
+							if(sites.records[id].status===3){
+								sucNum++;
+							}
             }
-            $(".process",".step-2").html(html).css({
-              height:$(this).height()
-            });
+						//进度条
+						$(".progressBar .inside").css({width:sucNum/num*($(".outside").width()-2)+"px"});
+						$(".sucNum").text(sucNum);
+						$(".num").text(num);
+
+            $(".process",".step-2").html(html);
             $(".process",".step-2").delegate("li","click",function(){
               require('./port').postMessage({"selectTab":$(this).find(".title").html().replace(":","")});
-            })
+            });
+						$(".process",".step-2").css({height:$(".process",".step-2").height()})
           })
         }
         setUp();

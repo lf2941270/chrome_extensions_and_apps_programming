@@ -1,0 +1,59 @@
+/*模板*/
+define(function(require,exports,module){
+  module.exports={
+    title:"973",
+    "status":0,
+    page:{
+      "status":1,//无需登录
+      "login":"http://kaifu.973.com",
+      "publish":"http://kaifu.973.com/addbox.html"
+    },
+    "user":{
+			"default":true,
+			"username":"",
+			"password":""
+    },
+
+    "publishForm":{
+      "content":[
+        {
+          "name":"gamename",
+          "replace":"game",
+          "value":"经过格式化函数处理后的值"
+        },{
+          "name":"servername",
+          "format":6,
+          "value":"经过格式化函数处理后的值"
+        },{
+          "name":"gamestart",
+					"format":5
+        },{
+          "name":"csname",
+					"replace":"company",
+          "value":"爱百娱"
+        },{
+          "name":"gameurl",
+          "replace":"main_url",
+          "value":"经过格式化函数处理后的值"
+        },{
+          "name":"packageurl",
+					"replace":"main_url",
+					"value":"http://www.ibaiyu.cn"
+        },{
+          "name":"packagenote",
+					"replace":"info",
+					"value":"http://www.ibaiyu.cn"
+        },{
+          "name":"qq",
+          "replace":"qq",
+          "value":""
+        }
+      ],
+      "submit":{
+        "selector":".submit input",
+        "trigger":"click"
+      },
+			"needVerifyCode":true
+    }
+  }
+});

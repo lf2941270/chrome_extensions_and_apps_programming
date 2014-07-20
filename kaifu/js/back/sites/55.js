@@ -1,12 +1,12 @@
 /*模板*/
 define(function(require,exports,module){
   module.exports={
-    title:"神游",
+    title:"kedou",
 		status:0,//0表示等待队列中，1表示登陆中，2表示处理中，3表示处理完毕
     page:{
       "status":0,//0表示需要登陆，1表示已有cookie无需登陆或者网站本身不需要登录
-      "login":"http://kf.ishenyou.com/app/client.php",
-      "publish":"http://kf.ishenyou.com/app/add-server.php?t=f"
+      "login":"http://kf.kedou.com/kf/login/toLogin.htm",
+      "publish":"http://kf.kedou.com/kf/pageGame/publishServer.htm"
     },
     "user":{
       "default":false,
@@ -15,10 +15,10 @@ define(function(require,exports,module){
     },
     "loginForm":{
       "needVerifyCode":false,
-      "selector":"form[action='3?action=login']",//登录表单的jquery选择器
+      "selector":".login_box form",//登录表单的jquery选择器
       "content":[
         {
-          "name":"user_name",
+          "name":"username",
           "value":"值"
         },{
           "name":"password",
@@ -26,37 +26,35 @@ define(function(require,exports,module){
         }
       ],
       "submit":{//登录表单的提交方式
-        "selector":"form[action='?action=login']",
-        "trigger":"submit"
+        "selector":".login_btn input",
+        "trigger":"click"
       }
     },
     "publishForm":{
       "content":[
         {
-          "name":"game_name",
+          "name":"gameOpenInfo.gameName",
           "replace":"game",
-          "value":"经过格式化函数处理后的值",
-          "text":true
+          "value":"经过格式化函数处理后的值"
         },{
-          "name":"game_time",
-          "format":12
+          "name":"openTime",
+          "format":7
         },{
-          "name":"platform_name",
-          "replace":"company",
-          "text":true
+          "name":"openHours",
+          "format":8
         },{
-          "name":"server_name",
+          "name":"gameOpenInfo.serverName",
           "format":6,
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"game_url",
+          "name":"gameOpenInfo.loginUrl",
           "replace":"main_url",
           "value":"经过格式化函数处理后的值"
         }
       ],
       "submit":{
-        "selector":"#form1",
-        "trigger":"submit"
+        "selector":"#subMitPublish",
+        "trigger":"click"
       }
     }
   }

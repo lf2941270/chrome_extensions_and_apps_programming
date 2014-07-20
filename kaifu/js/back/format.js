@@ -46,10 +46,14 @@ define(function(require,exports,module){
     },12:function(){
       return this.year+"年"+this.month.fill(2)+"月"+this.date.fill(2)+"日 "+this.hour.fill(2)+"时"+this.minute.fill(2)+"分"+this.second.fill(2)+"秒";
     },13:function(){
-
+			return this.month.fill(2);
     },14:function(){
       return this.minute;
-    }
+    },15:function(){
+			return this.date.fill(2);
+		},16:function(){
+			return this.hour.fill(2)+":"+this.minute.fill(2);
+		}
   },true);
 
   var formatMap;

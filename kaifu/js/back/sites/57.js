@@ -1,12 +1,12 @@
 /*模板*/
 define(function(require,exports,module){
   module.exports={
-    title:"神游",
+    title:"361games",
 		status:0,//0表示等待队列中，1表示登陆中，2表示处理中，3表示处理完毕
     page:{
       "status":0,//0表示需要登陆，1表示已有cookie无需登陆或者网站本身不需要登录
-      "login":"http://kf.ishenyou.com/app/client.php",
-      "publish":"http://kf.ishenyou.com/app/add-server.php?t=f"
+      "login":"http://www.361games.com/member/",
+      "publish":"http://www.361games.com/member/archives_add.php?channelid=19"
     },
     "user":{
       "default":false,
@@ -14,48 +14,55 @@ define(function(require,exports,module){
       "password":"baiyu0001"
     },
     "loginForm":{
-      "needVerifyCode":false,
-      "selector":"form[action='3?action=login']",//登录表单的jquery选择器
+      "needVerifyCode":true,
+      "selector":"form[action='index_do.php']",//登录表单的jquery选择器
       "content":[
         {
-          "name":"user_name",
+          "name":"userid",
           "value":"值"
         },{
-          "name":"password",
+          "name":"pwd",
           "value":"值"
         }
       ],
       "submit":{//登录表单的提交方式
-        "selector":"form[action='?action=login']",
+        "selector":"form[action='index_do.php']",
         "trigger":"submit"
       }
     },
     "publishForm":{
       "content":[
         {
-          "name":"game_name",
+          "name":"title",
           "replace":"game",
-          "value":"经过格式化函数处理后的值",
-          "text":true
+          "value":"经过格式化函数处理后的值"
         },{
-          "name":"game_time",
-          "format":12
+          "name":"tags",
+          "value":"0",
+          "format":10
         },{
-          "name":"platform_name",
-          "replace":"company",
-          "text":true
+          "name":"riqi",
+          "value":"0",
+          "format":5
         },{
-          "name":"server_name",
+          "name":"typeid",
+          "value":"238"
+        },{
+          "name":"fuwu",
           "format":6,
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"game_url",
+          "name":"pingtai",
+          "replace":"company",
+          "value":"经过格式化函数处理后的值"
+        },{
+          "name":"fuwuurl",
           "replace":"main_url",
           "value":"经过格式化函数处理后的值"
         }
       ],
       "submit":{
-        "selector":"#form1",
+        "selector":"[action='archives_add.php']",
         "trigger":"submit"
       }
     }

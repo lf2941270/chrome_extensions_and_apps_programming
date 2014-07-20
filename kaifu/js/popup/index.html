@@ -5,11 +5,10 @@
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8;">
   <style>
    html{
-     background: #fcfcfc;
+     background: url("../../images/Bg_login.jpg") no-repeat #FFFFFF;
    }
     body{
       width: 300px;
-      height: 500px;
       padding: 15px;
       font-size:12px;
       font-family: "微软雅黑";
@@ -38,16 +37,20 @@
       list-style: none;
       margin: 0;
       padding: 0;
+      border: 1px solid #cdcdcd;
+      box-shadow: 1px 1px 11px -5px #000;
+      border-radius: 4px;
     }
     .step .process li{
       cursor:pointer;
       padding: 0px;
     }
-   .step .process li:nth-child(odd){
-     background: #f2f2f2;
+   .step .process li:nth-child(even){
+     background: #e1edf5;
    }
    .step .process li:hover{
-     background: #BADDF0;
+     background: #63B0E6;
+     color:#ffffff
    }
    .step .process li span{
      padding: 4px 0;
@@ -79,6 +82,32 @@
    }
    .step-1 p.clearfix:nth-child(odd){
      background: #f2f2f2;
+   }
+   .progressBar{
+     margin: 10px 0;
+   }
+   .progressBar .pro-title{
+     float: left;
+   }
+    .progressBar .outside{
+      margin: 4px;
+      padding: 1px;
+      float: left;
+      width: 170px;
+      height: 6px;
+      border: 1px solid #61a8e4;
+      position: relative;
+      border-radius: 4px;
+      box-shadow: 1px 1px 6px -4px #000;
+
+    }
+   .progressBar .inside{
+     position: absolute;
+     height: 6px;
+     border-radius: 3px;
+     background: #63B0E6;
+     left: 1px;
+     top: 1px;
    }
   </style>
 </head>
@@ -152,7 +181,15 @@
 
   </div>
   <div class="step step-2">
-    <h3>第三步</h3>
+    <div class="progressBar clearfix">
+      <div class="pro-title">发布进度：</div>
+      <div class="outside">
+        <div class="inside"></div>
+      </div>
+      <div class="info">
+        <span class="sucNum"></span>/<span class="num"></span>
+      </div>
+    </div>
     <ul class="process">
 
     </ul>
