@@ -1,12 +1,12 @@
 /*模板*/
 define(function(require,exports,module){
   module.exports={
-    title:"kaifu100",
+    title:"323g",
 		status:0,//0表示等待队列中，1表示登陆中，2表示处理中，3表示处理完毕
     page:{
       "status":0,//0表示需要登陆，1表示已有cookie无需登陆或者网站本身不需要登录
-      "login":"http://www.kaifu100.com/login.html",
-      "publish":"http://www.kaifu100.com/add_game_kf.html"
+      "login":"http://kf.323g.com/tg/login.php",
+      "publish":"http://kf.323g.com/member/tg_add.php?a=game&c=kf"
     },
     "user":{
       "default":false,

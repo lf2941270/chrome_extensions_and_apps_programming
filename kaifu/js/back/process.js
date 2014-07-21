@@ -51,6 +51,7 @@ define(function(require,exports,module) {
             proxy.on(tab.id,function(port){//接收到tab.id事件，说明该页面已打开，可以通过port发送消息
               var proxyTab=new EventProxy;
               port.onMessage.addListener(function(msg){
+                console.log(msg);
                 switch (msg){
                   case "loginsuc":
                     site.status=2;

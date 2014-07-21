@@ -67,8 +67,8 @@ define(function(require,exports,module){
         }
       ],
       "submit":{
-        "selector":".form",
-        "trigger":"submit"
+        "selector":"input[value='提交']",
+        "trigger":"click"
       }
     }
   }

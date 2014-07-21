@@ -1,12 +1,12 @@
 /*模板*/
 define(function(require,exports,module){
   module.exports={
-    title:"78187网页游戏网",
+    title:"haowm",
 		status:0,//0表示等待队列中，1表示登陆中，2表示处理中，3表示处理完毕
     page:{
       "status":0,//0表示需要登陆，1表示已有cookie无需登陆或者网站本身不需要登录
-      "login":"http://kf.78187.com/tg/login.php",
-      "publish":"http://kf.78187.com/add_game_kf.html"
+      "login":"http://www.haowm.com/login.html",
+      "publish":"http://www.haowm.com/fabukaifu.html"
     },
     "user":{
       "default":false,
@@ -15,25 +15,25 @@ define(function(require,exports,module){
     },
     "loginForm":{
       "needVerifyCode":false,
-      "selector":"form[action='/member/tg_do.php']",//登录表单的jquery选择器
+      "selector":"form[action='/login.html']",//登录表单的jquery选择器
       "content":[
         {
-          "name":"userid",
+          "name":"tcomuser1",
           "value":"值"
         },{
-          "name":"pwd",
+          "name":"tcompass",
           "value":"值"
         }
       ],
       "submit":{//登录表单的提交方式
-        "selector":"form[action='/member/tg_do.php']",
+        "selector":"form[action='/login.html']",
         "trigger":"submit"
       }
     },
     "publishForm":{
       "content":[
         {
-          "name":"title",
+          "name":"gamename",
           "replace":"game",
           "value":"经过格式化函数处理后的值"
         },{
@@ -57,26 +57,34 @@ define(function(require,exports,module){
           "value":"0",
           "format":4
         },{
-          "name":"qufu",
-          "format":6,
-          "value":"经过格式化函数处理后的值"
-        },{
-          "name":"leixing",
+          "name":"gametype",
           "replace":"leixing",
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"pingtai",
+          "name":"gameserver[0]",
+          "format":6,
+          "value":"经过格式化函数处理后的值"
+        },{
+          "name":"oprcompany",
           "replace":"company",
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"zhuce",
+          "name":"urllogin",
           "replace":"main_url",
           "value":"经过格式化函数处理后的值"
+        },{
+          "name":"urlreg",
+          "replace":"main_url",
+          "value":"经过格式化函数处理后的值"
+        },{
+          "name":"activity",
+          "replace":"info",
+          "value":"0"
         }
       ],
       "submit":{
-        "selector":".tijiao",
-        "trigger":"click"
+        "selector":"form[action='/company_gameform.php']",
+        "trigger":"submit"
       }
     }
   }

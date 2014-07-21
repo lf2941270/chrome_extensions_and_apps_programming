@@ -50,7 +50,7 @@ define(function(require,exports,module){
         }
       ],
       "submit":{
-        "selector":".submit input",
+        "selector":"[name='submit']",
         "trigger":"click"
       },
 			"needVerifyCode":true

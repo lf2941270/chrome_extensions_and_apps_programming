@@ -15,7 +15,7 @@ define(function(require,exports,module){
     },
     "loginForm":{
       "needVerifyCode":false,
-      "selector":"form[action='3?action=login']",//登录表单的jquery选择器
+      "selector":"form[action='?action=login']",//登录表单的jquery选择器
       "content":[
         {
           "name":"user_name",
@@ -55,7 +55,7 @@ define(function(require,exports,module){
         }
       ],
       "submit":{
-        "selector":"#form1",
+        "selector":"[onsubmit='return Chkserver()']",
         "trigger":"submit"
       }
     }

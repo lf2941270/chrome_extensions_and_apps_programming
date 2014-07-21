@@ -54,8 +54,8 @@ define(function(require,exports,module){
         }
       ],
       "submit":{
-        "selector":"addcontent",
-        "trigger":"submit"
+        "selector":"button[onclick=\"if(checkSubmit()){$('addcontent').submit();}\"]",
+        "trigger":"click"
       },
       "needVerifyCode":true
     }

@@ -1,12 +1,12 @@
 /*模板*/
 define(function(require,exports,module){
   module.exports={
-    title:"kaifu100",
+    title:"03401",
 		status:0,//0表示等待队列中，1表示登陆中，2表示处理中，3表示处理完毕
     page:{
       "status":0,//0表示需要登陆，1表示已有cookie无需登陆或者网站本身不需要登录
-      "login":"http://www.kaifu100.com/login.html",
-      "publish":"http://www.kaifu100.com/add_game_kf.html"
+      "login":"http://www.03401.com/login.php",
+      "publish":"http://www.03401.com/user_fbxf.php"
     },
     "user":{
       "default":false,
@@ -15,67 +15,67 @@ define(function(require,exports,module){
     },
     "loginForm":{
       "needVerifyCode":false,
-      "selector":"form[action='/member/tg_do.php']",//登录表单的jquery选择器
+      "selector":"form[action='login.php?act=login']",//登录表单的jquery选择器
       "content":[
         {
-          "name":"userid",
+          "name":"username",
           "value":"值"
         },{
-          "name":"pwd",
+          "name":"password",
           "value":"值"
         }
       ],
       "submit":{//登录表单的提交方式
-        "selector":"form[action='/member/tg_do.php']",
+        "selector":"form[action='login.php?act=login']",
         "trigger":"submit"
       }
     },
     "publishForm":{
       "content":[
 				{
-					"name":"title",
+					"name":"yxname",
 					"replace":"game",
 					"value":"经过格式化函数处理后的值"
 				},{
-					"name":"leixing",
-					"value":"0",
-					"replace":"leixing"
-				},{
-					"name":"qufu",
-					"value":"0",
-					"format":6
-				},{
-					"name":"year",
+					"name":"yy",
 					"value":"0",
 					"format":0
 				},{
-					"name":"month",
+					"name":"m",
 					"value":"0",
-					"format":1
+					"format":13
 				},{
-					"name":"day",
+					"name":"d",
 					"value":"0",
-					"format":2
+					"format":15
 				},{
-					"name":"hour",
+					"name":"h",
 					"value":"0",
-					"format":3
+					"format":8
 				},{
-					"name":"minute",
+					"name":"i",
 					"value":"0",
 					"format":4
 				},{
-					"name":"zhuce",
+					"name":"pingtai",
+					"value":"0",
+					"replace":"company"
+				},{
+					"name":"xianlu",
+					"value":"0",
+					"format":6
+				},{
+					"name":"kfurl",
 					"replace":"main_url",
 					"value":"经过格式化函数处理后的值"
 				},{
-					"name":"pingtai",
-					"replace":"company",
+					"name":"kfjs",
+					"replace":"info",
 					"value":"经过格式化函数处理后的值"
 				}
       ],
       "submit":{
-        "selector":".tijiao",
+        "selector":"input[src='images/tj.gif']",
         "trigger":"click"
       }
     }

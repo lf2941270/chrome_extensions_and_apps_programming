@@ -26,8 +26,8 @@ define(function(require,exports,module){
         }
       ],
       "submit":{//登录表单的提交方式
-        "selector":".loginbtn",
-        "trigger":"click"
+        "selector":"form[action='/member/tg_do.php']",
+        "trigger":"submit"
       }
     },
     "publishForm":{

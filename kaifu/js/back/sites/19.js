@@ -15,7 +15,7 @@ define(function(require,exports,module){
     },
     "loginForm":{
       "needVerifyCode":false,
-      "selector":"form[action='/member/add_kaifu.php']",//登录表单的jquery选择器
+      "selector":"form[action='index_do.php']",//登录表单的jquery选择器
       "content":[
         {
           "name":"userid",
@@ -29,7 +29,7 @@ define(function(require,exports,module){
         }
       ],
       "submit":{//登录表单的提交方式
-        "selector":"form[action='/member/add_kaifu.php']",
+        "selector":"form[action='index_do.php']",
         "trigger":"submit"
       }
     },

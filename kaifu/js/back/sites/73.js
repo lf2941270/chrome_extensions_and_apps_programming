@@ -1,12 +1,12 @@
 /*模板*/
 define(function(require,exports,module){
   module.exports={
-    title:"kaifu100",
+    title:"i1758",
 		status:0,//0表示等待队列中，1表示登陆中，2表示处理中，3表示处理完毕
     page:{
       "status":0,//0表示需要登陆，1表示已有cookie无需登陆或者网站本身不需要登录
-      "login":"http://www.kaifu100.com/login.html",
-      "publish":"http://www.kaifu100.com/add_game_kf.html"
+      "login":"http://www.i1758.com/user/login.php",
+      "publish":"http://www.i1758.com/user/kaifu_add.php"
     },
     "user":{
       "default":false,
@@ -14,36 +14,37 @@ define(function(require,exports,module){
       "password":"baiyu0001"
     },
     "loginForm":{
-      "needVerifyCode":false,
-      "selector":"form[action='/member/tg_do.php']",//登录表单的jquery选择器
+      "needVerifyCode":true,
+      "selector":"form[action='login_form.php']",//登录表单的jquery选择器
       "content":[
         {
-          "name":"userid",
+          "name":"user_name",
           "value":"值"
         },{
-          "name":"pwd",
+          "name":"user_pass",
           "value":"值"
         }
       ],
       "submit":{//登录表单的提交方式
-        "selector":"form[action='/member/tg_do.php']",
+        "selector":"form[action='login_form.php']",
         "trigger":"submit"
       }
     },
     "publishForm":{
       "content":[
 				{
-					"name":"title",
+					"name":"kaifu_gname",
 					"replace":"game",
 					"value":"经过格式化函数处理后的值"
 				},{
-					"name":"leixing",
+					"name":"kaifu_type",
 					"value":"0",
-					"replace":"leixing"
+					"replace":"leixing",
+          "text":true
 				},{
-					"name":"qufu",
+					"name":"kaifu_server",
 					"value":"0",
-					"format":6
+					"replace":"server"
 				},{
 					"name":"year",
 					"value":"0",
@@ -59,23 +60,23 @@ define(function(require,exports,module){
 				},{
 					"name":"hour",
 					"value":"0",
-					"format":3
+					"format":8
 				},{
 					"name":"minute",
 					"value":"0",
 					"format":4
 				},{
-					"name":"zhuce",
+					"name":"kaifu_url",
 					"replace":"main_url",
 					"value":"经过格式化函数处理后的值"
 				},{
-					"name":"pingtai",
+					"name":"kaifu_pingtai",
 					"replace":"company",
 					"value":"经过格式化函数处理后的值"
 				}
       ],
       "submit":{
-        "selector":".tijiao",
+        "selector":"#imageField",
         "trigger":"click"
       }
     }

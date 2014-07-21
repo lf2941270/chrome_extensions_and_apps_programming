@@ -5,8 +5,8 @@ define(function(require,exports,module){
 		status:0,//0表示等待队列中，1表示登陆中，2表示处理中，3表示处理完毕
     page:{
       "status":0,//0表示需要登陆，1表示已有cookie无需登陆或者网站本身不需要登录
-      "login":"http://www.kaifubiao.cn/company/",
-      "publish":"http://www.kaifubiao.cn/company/?act=add"
+      "login":"http://www.kaifubiao.cn/company/?act=login",
+      "publish":"http://www.kaifubiao.cn/company/"
     },
     "user":{
       "default":false,
@@ -26,8 +26,8 @@ define(function(require,exports,module){
         }
       ],
       "submit":{//登录表单的提交方式
-        "selector":".login",
-        "trigger":"submit"
+        "selector":"[onclick='return login();']",
+        "trigger":"click"
       }
     },
     "publishForm":{

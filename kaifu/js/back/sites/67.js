@@ -1,12 +1,12 @@
 /*模板*/
 define(function(require,exports,module){
   module.exports={
-    title:"kaifu100",
+    title:"e8online",
 		status:0,//0表示等待队列中，1表示登陆中，2表示处理中，3表示处理完毕
     page:{
       "status":0,//0表示需要登陆，1表示已有cookie无需登陆或者网站本身不需要登录
-      "login":"http://www.kaifu100.com/login.html",
-      "publish":"http://www.kaifu100.com/add_game_kf.html"
+      "login":"http://pm.e8online.com/index.php?m=member&c=index&a=login&forward=http%3A%2F%2Fpm.e8online.com%2F%3Fm%3Dpm%26a%3Dkffb",
+      "publish":"http://pm.e8online.com/?m=pm&a=kffb_add"
     },
     "user":{
       "default":false,
@@ -14,68 +14,52 @@ define(function(require,exports,module){
       "password":"baiyu0001"
     },
     "loginForm":{
-      "needVerifyCode":false,
-      "selector":"form[action='/member/tg_do.php']",//登录表单的jquery选择器
+      "needVerifyCode":true,
+      "selector":".login_main",//登录表单的jquery选择器
       "content":[
         {
-          "name":"userid",
+          "name":"username",
           "value":"值"
         },{
-          "name":"pwd",
+          "name":"password",
           "value":"值"
         }
       ],
       "submit":{//登录表单的提交方式
-        "selector":"form[action='/member/tg_do.php']",
+        "selector":".login_main",
         "trigger":"submit"
       }
     },
     "publishForm":{
       "content":[
 				{
-					"name":"title",
+					"name":"info[title]",
 					"replace":"game",
 					"value":"经过格式化函数处理后的值"
 				},{
-					"name":"leixing",
+					"name":"info[kfsj]",
 					"value":"0",
-					"replace":"leixing"
+					"format":5
 				},{
-					"name":"qufu",
+					"name":"info[fwqm]",
 					"value":"0",
 					"format":6
 				},{
-					"name":"year",
+					"name":"info[gwdz]",
 					"value":"0",
-					"format":0
+					"replace":"site_url"
 				},{
-					"name":"month",
+					"name":"info[jryx]",
 					"value":"0",
-					"format":1
+					"replace":"main_url"
 				},{
-					"name":"day",
+					"name":"info[lbdz]",
 					"value":"0",
-					"format":2
-				},{
-					"name":"hour",
-					"value":"0",
-					"format":3
-				},{
-					"name":"minute",
-					"value":"0",
-					"format":4
-				},{
-					"name":"zhuce",
-					"replace":"main_url",
-					"value":"经过格式化函数处理后的值"
-				},{
-					"name":"pingtai",
-					"replace":"company",
-					"value":"经过格式化函数处理后的值"
+          "replace":"main_url"
 				}
       ],
       "submit":{
-        "selector":".tijiao",
+        "selector":"#dosubmit",
         "trigger":"click"
       }
     }
