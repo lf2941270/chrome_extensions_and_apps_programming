@@ -54,7 +54,7 @@ define(function(require,exports,module){
   sites.push(require('./52'));
   sites.push(require('./53'));
   sites.push(require('./54'));
-  sites.push(require('./55'));
+//  sites.push(require('./55')); 发不了
   sites.push(require('./56'));
   sites.push(require('./57'));
   sites.push(require('./58'));
@@ -75,5 +75,7 @@ define(function(require,exports,module){
   sites.push(require('./73'));
   sites.push(require('./74'));
   sites.push(require('./75'));
+  sites.push(require('./76'));
+  sites.push(require('./77'));
   module.exports=sites;
 });

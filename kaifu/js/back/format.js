@@ -17,6 +17,7 @@ define(function(require,exports,module){
     this.minute=new Date(replaceform.time).getMinutes().toString();
     this.second=new Date(replaceform.time).getSeconds().toString();
     this.fullServerName="双线"+replaceform.server+"服";
+    this.url=replaceform.main_url;
   }
   FormatMap.prototype= $.extend(FormatMap.prototype,{
     0:function(){
@@ -53,7 +54,13 @@ define(function(require,exports,module){
 			return this.date.fill(2);
 		},16:function(){
 			return this.hour.fill(2)+":"+this.minute.fill(2);
-		}
+		},17:function(){
+      return this.year+"-"+this.month.fill(2)+"-"+this.date.fill(2)+" "+this.hour.fill(2);
+    },18:function(){
+      return this.url.replace("http://","");
+    },19:function(){
+      return this.fullServerName.replace("双线","");//返回服务器全名：双线？服
+    }
   },true);
 
   var formatMap;

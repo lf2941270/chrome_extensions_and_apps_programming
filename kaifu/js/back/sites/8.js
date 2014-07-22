@@ -58,7 +58,7 @@ define(function(require,exports,module){
           "format":4
         },{
           "name":"qufu",
-          "format":6,
+          "format":19,
           "value":"经过格式化函数处理后的值"
         },{
           "name":"leixing",

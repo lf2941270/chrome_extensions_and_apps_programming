@@ -43,7 +43,8 @@ var handleMap={
           inputEle.trigger("focus");
           if(inputEle.attr("type")==="radio"){
             inputEle.each(function(){
-              if($(this).val()===input.value){
+              console.log(this.nextSibling.data)
+              if(((input.text&&this.nextSibling)?this.nextSibling.data.trim():$(this).val())===input.value){
                 $(this).attr("checked",true);
               }else{
                 $(this).attr("checked",false);

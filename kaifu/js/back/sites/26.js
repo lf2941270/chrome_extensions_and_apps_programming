@@ -43,7 +43,7 @@ define(function(require,exports,module){
         },{
           "name":"newstime",
           "value":"0",
-          "format":9
+          "format":17
         },{
           "name":"companies",
           "value":"0",
