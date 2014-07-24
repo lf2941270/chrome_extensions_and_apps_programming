@@ -37,7 +37,7 @@ define(function(require,exports,module){
       "content":[
         {
           "name":"info[title]",
-          "replace":"info",
+          "replace":"game",
           "value":"经过格式化函数处理后的值"
         },{
           "name":"info[gname]",

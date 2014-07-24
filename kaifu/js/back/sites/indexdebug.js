@@ -17,11 +17,15 @@ define(function(require,exports,module){
 //  sites.push(require('./64'));
 //  sites.push(require('./71'));
 //  sites.push(require('./75'));
-  sites.push(require('./26'));
-  sites.push(require('./72'));
-  sites.push(require('./73'));
-  sites.push(require('./78'));
-  sites.push(require('./79'));
+//  sites.push(require('./26'));
+//  sites.push(require('./72'));
+//  sites.push(require('./73'));
+//  sites.push(require('./78'));
+//  sites.push(require('./79'));
+  sites.push(require('./67'));
+  sites.push(require('./80'));
+  sites.push(require('./81'));
+  sites.push(require('./82'));
 
   module.exports=sites;
 });

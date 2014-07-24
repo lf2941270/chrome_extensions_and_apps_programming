@@ -77,5 +77,10 @@ define(function(require,exports,module){
   sites.push(require('./75'));
   sites.push(require('./76'));
   sites.push(require('./77'));
+  sites.push(require('./78'));
+  sites.push(require('./79'));
+  sites.push(require('./80'));
+  sites.push(require('./81'));
+  sites.push(require('./82'));
   module.exports=sites;
 });

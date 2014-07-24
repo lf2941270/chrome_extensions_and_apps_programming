@@ -60,7 +60,9 @@ define(function(require,exports,module){
       return this.url.replace("http://","");
     },19:function(){
       return this.fullServerName.replace("双线","");//返回服务器全名：双线？服
-    }
+    },20:function(){
+			return this.year+"/"+this.month.fill(2)+"/"+this.date.fill(2);
+		}
   },true);
 
   var formatMap;
