@@ -10,9 +10,9 @@ define(function(require,exports,module){
         var _=this;
         $("input[name='submit']").click(function(){
           if($("#username").val()===""){
-            alert("账号不能为空")
+            alert("账号不能为空");
           }else if($("#password").val()===""){
-            alert("密码不能为空")
+            alert("密码不能为空");
           }else{
             DefaultUser.setUser($("#username").val(),$("#password").val());
             _._stepTo(1)
