@@ -82,5 +82,14 @@ define(function(require,exports,module){
   sites.push(require('./80'));
   sites.push(require('./81'));
   sites.push(require('./82'));
+	sites.push(require('./83'));
+	sites.push(require('./84'));
+	sites.push(require('./85'));
+	sites.push(require('./86'));
+	sites.push(require('./87'));
+	sites.push(require('./88'));
+	sites.push(require('./89'));
+	sites.push(require('./90'));
+	sites.push(require('./91'));
   module.exports=sites;
 });
