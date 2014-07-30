@@ -5,7 +5,7 @@ define(function(require,exports,module){
 		status:0,//0表示等待队列中，1表示登陆中，2表示处理中，3表示处理完毕
     page:{
       "status":0,//0表示需要登陆，1表示已有cookie无需登陆或者网站本身不需要登录
-      "login":"http:///kf.7hon.com/tg/login.php",
+      "login":"http://kf.7hon.com/tg/login.php",
       "publish":"http://kf.7hon.com/add_game_kf.html"
     },
     "user":{

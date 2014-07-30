@@ -22,10 +22,10 @@ define(function(require,exports,module){
 //  sites.push(require('./73'));
 //  sites.push(require('./78'));
 //  sites.push(require('./79'));
-  sites.push(require('./67'));
-  sites.push(require('./80'));
-  sites.push(require('./81'));
-  sites.push(require('./82'));
+//  sites.push(require('./67'));
+//  sites.push(require('./80'));
+//  sites.push(require('./81'));
+  sites.push(require('./66'));
 
   module.exports=sites;
 });

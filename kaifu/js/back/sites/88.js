@@ -49,9 +49,9 @@ define(function(require,exports,module){
 					"value":"0",
 					"format":4
 				},{
-					"name":"open_time",
+					"name":"kftime",
 					"value":"0",
-					"format":8
+					"format":7
 				},{
 					"name":"regurl",
 					"value":"0",
