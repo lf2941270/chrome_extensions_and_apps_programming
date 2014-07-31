@@ -91,5 +91,6 @@ define(function(require,exports,module){
 	sites.push(require('./89'));
 	sites.push(require('./90'));
 	sites.push(require('./91'));
+	sites.push(require('./92'));
   module.exports=sites;
 });
