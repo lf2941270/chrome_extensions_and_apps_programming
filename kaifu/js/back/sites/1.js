@@ -54,11 +54,9 @@ define(function(require,exports,module){
           "value":"经过格式化函数处理后的值"
         },{
           "name":"pros",
-          "type":"radio",
           "value":"0"
         },{
           "name":"card",
-          "type":"radio",
           "value":"0"
         },
       ],

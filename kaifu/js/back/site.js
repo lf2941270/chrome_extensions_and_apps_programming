@@ -18,8 +18,8 @@ define(function(require,exports,module){
   Site.extend({
     initBack:function(cb){
 			this.removeLocal(function(){
-//				var sites=require('./sites/indexdebug');
-				var sites=require('./sites/index');
+				var sites=require('./sites/indexdebug');
+//				var sites=require('./sites/index');
 				for(var i= 0,l=sites.length;i<l;i++){
 					Site.init(sites[i]);
 				}

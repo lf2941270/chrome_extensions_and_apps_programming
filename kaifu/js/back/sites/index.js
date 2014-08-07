@@ -24,7 +24,7 @@ define(function(require,exports,module){
   sites.push(require('./22'));
   sites.push(require('./23'));
   sites.push(require('./24'));
-//  sites.push(require('./25')); 发不了
+  sites.push(require('./25'));
   sites.push(require('./26'));
   sites.push(require('./27'));
   sites.push(require('./28'));
@@ -54,7 +54,7 @@ define(function(require,exports,module){
   sites.push(require('./52'));
   sites.push(require('./53'));
   sites.push(require('./54'));
-//  sites.push(require('./55')); 发不了
+  sites.push(require('./55'));
   sites.push(require('./56'));
   sites.push(require('./57'));
   sites.push(require('./58'));
@@ -92,5 +92,7 @@ define(function(require,exports,module){
 	sites.push(require('./90'));
 	sites.push(require('./91'));
 	sites.push(require('./92'));
+	sites.push(require('./93'));
+	sites.push(require('./94'));
   module.exports=sites;
 });

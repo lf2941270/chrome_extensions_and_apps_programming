@@ -32,45 +32,51 @@ var handleMap={
 
         input=obj.publishForm.content[i];
         console.log(input)
-        if(!input.type){
-          var inputEle;
-          if(input.name){
-            inputEle=$('[name="'+input.name+'"]');
-          }else if(input.id){
-            inputEle=$('#'+input.id);
-          }
-          console.log(inputEle)
-          inputEle.trigger("focus");
-          if(inputEle.attr("type")==="radio"){
-            inputEle.each(function(){
-              console.log(this.nextSibling.data)
-              if(((input.text&&this.nextSibling)?this.nextSibling.data.trim():$(this).val())===input.value){
-                $(this).attr("checked",true);
-              }else{
-                $(this).attr("checked",false);
-              }
-            })
-          }else if(input.text===true){
-            inputEle.find("option").each(function(){
-              if($(this).text()===input.value){
-                $(this).attr("selected",true);
-              }else{
-                $(this).attr("selected",false);
-              }
-            })
-          }
-          else{
-            inputEle.val(input.value);
-          }
-          inputEle.trigger("blur");
+				function fillInput(input){
+					var inputEle;
+					if(input.name){
+						inputEle=$('[name="'+input.name+'"]');
+					}else if(input.id){
+						inputEle=$('#'+input.id);
+					}
+					console.log(inputEle);
+					if(input.trigger){
+						inputEle.trigger(input.trigger);
+					}else{
+						inputEle.trigger("focus");
+					}
+					if(inputEle.attr("type")==="radio"){
+						inputEle.each(function(){
+							console.log(this.nextSibling.data)
+							if(((input.text&&this.nextSibling)?this.nextSibling.data.trim():$(this).val())===input.value){
+								$(this).attr("checked",true);
+							}else{
+								$(this).attr("checked",false);
+							}
+						})
+					}else if(input.text===true){
+						inputEle.find("option").each(function(){
+							if($(this).text()===input.value){
+								$(this).attr("selected",true);
+							}else{
+								$(this).attr("selected",false);
+							}
+						})
+					}
+					else{
+						inputEle.val(input.value);
+					}
+					inputEle.trigger("blur");
+				}
+        if(!input.later){
+					fillInput(input);
+        }else{
+					setTimeout(function(){
+						fillInput(input);
+					},1000);
+				}
 
-        }
 
-        /*if(obj.loginForm.content[i].remember===true){
-         $('[name="'+obj.loginForm.content[i].name+'"]',obj.loginForm.selector).attr("checked","checked");//勾选记住密码
-         }else{
-         $('[name="'+obj.loginForm.content[i].name+'"]',obj.loginForm.selector).val(obj.loginForm.content[i].value);
-         }*/
       }
     }
     //发送成功消息

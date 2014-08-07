@@ -21,7 +21,7 @@ define(function(require,exports,module){
       this.loadLocal(this.proxy(function(){
         if(this.find().step===undefined){//说明本地存储为空，处于最初状态
           this.init({
-            step:0,
+            step:1,
             process:0,/*主流程状态，0表示未初始化*/
             replaceform:{}
           });
