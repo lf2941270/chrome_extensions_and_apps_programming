@@ -17,7 +17,7 @@ define(function(require,exports,module){
   sites.push(require('./15'));
   sites.push(require('./16'));
   sites.push(require('./17'));
-  sites.push(require('./18'));
+//  sites.push(require('./18'));
   sites.push(require('./19'));
   sites.push(require('./20'));
   sites.push(require('./21'));
@@ -100,7 +100,7 @@ define(function(require,exports,module){
 	sites.push(require('./98'));
 	sites.push(require('./99'));
 	sites.push(require('./100'));
-	sites.push(require('./101'));
+//	sites.push(require('./101'));
 	sites.push(require('./102'));
 	sites.push(require('./103'));
 	sites.push(require('./104'));

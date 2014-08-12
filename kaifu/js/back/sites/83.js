@@ -43,7 +43,7 @@ define(function(require,exports,module){
 				},{
 					"name":"qufu",
 					"value":"0",
-					"format":19
+					"replace":"server"
 				},{
 					"name":"year",
 					"value":"0",

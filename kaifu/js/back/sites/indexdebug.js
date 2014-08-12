@@ -26,8 +26,8 @@ define(function(require,exports,module){
 //  sites.push(require('./80'));
 //  sites.push(require('./81'));
 //  sites.push(require('./93'));
-  sites.push(require('./66'));
-  sites.push(require('./68'));
+//  sites.push(require('./66'));
+  sites.push(require('./96'));
 
   module.exports=sites;
 });

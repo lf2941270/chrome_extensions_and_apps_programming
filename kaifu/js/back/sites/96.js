@@ -26,8 +26,8 @@ define(function(require,exports,module){
         }
       ],
       "submit":{//登录表单的提交方式
-        "selector":"#f_login",
-        "trigger":"submit"
+        "selector":".but05",
+        "trigger":"click"
       }
     },
     "publishForm":{
