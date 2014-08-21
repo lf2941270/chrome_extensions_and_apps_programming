@@ -14,11 +14,13 @@ function reg(){
 		send(n,ext.action,ext.reg[n],ext.password,function(i){
 			return function(text){
 				var n=i;
+				var arr=text.split("|")
 				if(text.indexOf("Success")>0){
 					ext.reg[n].status="注册成功";
+					ext.reg[n].href=arr[0];
 					ext.total++;
 				}else{
-					ext.reg[n].status="注册失败";
+					ext.reg[n].status="注册失败("+arr[0]+")";
 				}
 				ext.change()
 

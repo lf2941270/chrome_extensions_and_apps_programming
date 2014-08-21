@@ -49,9 +49,15 @@
 		var html='';
 		for(var i=0;i<ext.reg.length;i++){
 			html+="<li title='"+ext.reg[i].username+"'>"
+			if(ext.reg[i].href){
+				html+='<a href="'+ext.reg[i].href+'" target="_blank">'
+			}
 			html+="<span class='num'>"+ext.reg[i].id+"</span>"
 			html+="<span class='title'>"+ext.reg[i].username+":</span>"
 			html+="<span class='status'>"+ext.reg[i].status+"</span>"
+			if(ext.reg[i].href){
+				html+='</a>'
+			}
 			html+="</li>"
 		}
 		console.log(html)

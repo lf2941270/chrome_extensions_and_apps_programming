@@ -5,8 +5,8 @@ define(function(require,exports,module){
 		status:0,//0表示等待队列中，1表示登陆中，2表示处理中，3表示处理完毕
     page:{
       "status":0,//0表示需要登陆，1表示已有cookie无需登陆或者网站本身不需要登录
-      "login":"http://kf.78187.com/tg/login.php",
-      "publish":"http://kf.78187.com/add_game_kf.html"
+      "login":"http://www.78187.com/e/member/login/",
+      "publish":"http://www.78187.com/e/member/tg/AddInfoa.php?mid=11&enews=MAddInfo&classid=5"
     },
     "user":{
       "default":false,
@@ -15,18 +15,18 @@ define(function(require,exports,module){
     },
     "loginForm":{
       "needVerifyCode":false,
-      "selector":"form[action='/member/tg_do.php']",//登录表单的jquery选择器
+      "selector":"form[action='/e/member/doaction.php']",//登录表单的jquery选择器
       "content":[
         {
-          "name":"userid",
+          "name":"username",
           "value":"值"
         },{
-          "name":"pwd",
+          "name":"password",
           "value":"值"
         }
       ],
       "submit":{//登录表单的提交方式
-        "selector":"form[action='/member/tg_do.php']",
+        "selector":"form[action='/e/member/doaction.php']",
         "trigger":"submit"
       }
     },
@@ -37,45 +37,41 @@ define(function(require,exports,module){
           "replace":"game",
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"year",
+          "id":"selYear1",
           "value":"0",
           "format":0
         },{
-          "name":"month",
+          "id":"selMonth1",
           "value":"0",
           "format":1
         },{
-          "name":"day",
+          "id":"selDay1",
           "value":"0",
           "format":2
         },{
-          "name":"hour",
+          "id":"selHour1",
           "value":"0",
           "format":3
         },{
-          "name":"minute",
+          "id":"selMin1",
           "value":"0",
-          "format":4
+          "format":14
         },{
-          "name":"qufu",
-          "format":19,
+          "name":"xf",
+          "format":6,
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"leixing",
-          "replace":"leixing",
-          "value":"经过格式化函数处理后的值"
-        },{
-          "name":"pingtai",
+          "name":"yy",
           "replace":"company",
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"zhuce",
+          "name":"url",
           "replace":"main_url",
           "value":"经过格式化函数处理后的值"
         }
       ],
       "submit":{
-        "selector":".tijiao",
+        "selector":"[name='addnews']",
         "trigger":"click"
       }
     }
