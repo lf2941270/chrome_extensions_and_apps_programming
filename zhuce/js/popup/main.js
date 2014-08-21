@@ -53,7 +53,7 @@
 				html+='<a href="'+ext.reg[i].href+'" target="_blank">'
 			}
 			html+="<span class='num'>"+ext.reg[i].id+"</span>"
-			html+="<span class='title'>"+ext.reg[i].username+":</span>"
+			html+="<span class='title'>"+ext.reg[i].username+"</span>"
 			html+="<span class='status'>"+ext.reg[i].status+"</span>"
 			if(ext.reg[i].href){
 				html+='</a>'
