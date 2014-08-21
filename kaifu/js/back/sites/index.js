@@ -104,5 +104,14 @@ define(function(require,exports,module){
 	sites.push(require('./102'));
 	sites.push(require('./103'));
 	sites.push(require('./104'));
+	sites.push(require('./105'));
+	sites.push(require('./106'));
+	sites.push(require('./107'));
+	sites.push(require('./108'));
+	sites.push(require('./109'));
+	sites.push(require('./110'));
+	sites.push(require('./111'));
+	sites.push(require('./112'));
+	sites.push(require('./113'));
   module.exports=sites;
 });
