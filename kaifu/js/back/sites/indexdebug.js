@@ -27,7 +27,9 @@ define(function(require,exports,module){
 //  sites.push(require('./81'));
 //  sites.push(require('./93'));
 //  sites.push(require('./66'));
-  sites.push(require('./12'));
+  sites.push(require('./114'));
+  sites.push(require('./115'));
+//  sites.push(require('./68'));
 
   module.exports=sites;
 });
