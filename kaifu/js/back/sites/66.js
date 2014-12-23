@@ -5,8 +5,8 @@ define(function(require,exports,module){
 		status:0,//0表示等待队列中，1表示登陆中，2表示处理中，3表示处理完毕
     page:{
       "status":0,//0表示需要登陆，1表示已有cookie无需登陆或者网站本身不需要登录
-      "login":"http://www.8uka.com/member/tg.php",
-      "publish":"http://www.8uka.com/member/tg_add.php?a=game&c=kf"
+      "login":"http://www.8uka.com/e/tg/login.php",
+      "publish":"http://www.8uka.com/e/tg/AddInfo.php?mid=16&enews=MAddInfo&classid=32"
     },
     "user":{
       "default":false,
@@ -14,7 +14,7 @@ define(function(require,exports,module){
       "password":"baiyu0001"
     },
     "loginForm":{
-      "needVerifyCode":true,
+      "needVerifyCode":false,
       "selector":"form[action='/member/tg_do.php']",//登录表单的jquery选择器
       "content":[
         {
@@ -37,45 +37,21 @@ define(function(require,exports,module){
 					"replace":"game",
 					"value":"经过格式化函数处理后的值"
 				},{
-					"name":"leixing",
+					"name":"newstime",
 					"value":"0",
-					"replace":"leixing"
+					"format":5
 				},{
-					"name":"qufu",
+					"name":"fu",
 					"value":"0",
-					"format":19
+					"format":6
 				},{
-					"name":"year",
-					"value":"0",
-					"format":0
-				},{
-					"name":"month",
-					"value":"0",
-					"format":1
-				},{
-					"name":"day",
-					"value":"0",
-					"format":2
-				},{
-					"name":"hour",
-					"value":"0",
-					"format":3
-				},{
-					"name":"minute",
-					"value":"0",
-					"format":4
-				},{
-					"name":"zhuce",
+					"name":"lei",
 					"replace":"main_url",
-					"value":"经过格式化函数处理后的值"
-				},{
-					"name":"pingtai",
-					"replace":"company",
 					"value":"经过格式化函数处理后的值"
 				}
       ],
       "submit":{
-        "selector":".tijiao",
+        "selector":".submit",
         "trigger":"click"
       }
     }

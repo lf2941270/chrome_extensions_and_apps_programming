@@ -22,13 +22,23 @@ define(function(require,exports,module){
 //  sites.push(require('./73'));
 //  sites.push(require('./78'));
 //  sites.push(require('./79'));
-//  sites.push(require('./67'));
+  sites.push(require('./13'));
 //  sites.push(require('./80'));
 //  sites.push(require('./81'));
 //  sites.push(require('./93'));
 //  sites.push(require('./66'));
-  sites.push(require('./114'));
-  sites.push(require('./115'));
+//  sites.push(require('./114'));
+//	sites.push(require('./116'));
+//	sites.push(require('./117'));
+//	sites.push(require('./118'));
+//	sites.push(require('./119'));
+//	sites.push(require('./120'));
+//	sites.push(require('./121'));
+//	sites.push(require('./122'));
+//	sites.push(require('./123'));
+//	sites.push(require('./124'));
+//	sites.push(require('./125'));
+//  sites.push(require('./115'));
 //  sites.push(require('./68'));
 
   module.exports=sites;

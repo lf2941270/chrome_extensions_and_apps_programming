@@ -18,8 +18,8 @@ define(function(require,exports,module){
   Site.extend({
     initBack:function(cb){
 			this.removeLocal(function(){
-//				var sites=require('./sites/indexdebug');
-				var sites=require('./sites/index');
+				var sites=require('./sites/indexdebug');
+//				var sites=require('./sites/index');
 				for(var i= 0,l=sites.length;i<l;i++){
 					Site.init(sites[i]);
 				}
@@ -27,7 +27,7 @@ define(function(require,exports,module){
 			});
     },
 		prevProcess:function(proxyOut){//对Site进行预处理
-			var _=this;
+			var _=this;5336
 			proxy.assign("defaultuser","replaceform",function(defaultuser,replaceform){
 				var publishForm;
 				var input;

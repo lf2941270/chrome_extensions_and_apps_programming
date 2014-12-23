@@ -1,12 +1,12 @@
 /*模板*/
 define(function(require,exports,module){
   module.exports={
-    title:"七虹游",
+    title:"2291",
 		status:0,//0表示等待队列中，1表示登陆中，2表示处理中，3表示处理完毕
     page:{
       "status":0,//0表示需要登陆，1表示已有cookie无需登陆或者网站本身不需要登录
-      "login":"http://kf.7hon.com/tg/login.php",
-      "publish":"http://kf.7hon.com/add_game_kf.html"
+      "login":"http://kf.2291.com/login.html",
+      "publish":"http://kf.2291.com/add_game_kf.html"
     },
     "user":{
       "default":false,
@@ -14,8 +14,8 @@ define(function(require,exports,module){
       "password":"baiyu0001"
     },
     "loginForm":{
-      "needVerifyCode":true,
-      "selector":"form[action='/member/index_do.php']",//登录表单的jquery选择器
+      "needVerifyCode":false,
+      "selector":"form[action='/member/tg_do.php']",//登录表单的jquery选择器
       "content":[
         {
           "name":"userid",
@@ -67,10 +67,6 @@ define(function(require,exports,module){
 				},{
 					"name":"zhuce",
 					"replace":"main_url",
-					"value":"经过格式化函数处理后的值"
-				},{
-					"name":"pingtai",
-					"replace":"company",
 					"value":"经过格式化函数处理后的值"
 				}
       ],

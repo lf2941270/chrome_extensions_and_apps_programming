@@ -6,7 +6,7 @@ define(function(require,exports,module){
     page:{
       "status":0,//0表示需要登陆，1表示已有cookie无需登陆或者网站本身不需要登录
       "login":"http://www.haowm.com/login.html",
-      "publish":"http://www.haowm.com/fabukaifu.html"
+      "publish":"http://www.haowm.com/add_game_kf.html"
     },
     "user":{
       "default":false,
@@ -15,25 +15,25 @@ define(function(require,exports,module){
     },
     "loginForm":{
       "needVerifyCode":false,
-      "selector":"form[action='/login.html']",//登录表单的jquery选择器
+      "selector":"form[action='/member/tg_do.php']",//登录表单的jquery选择器
       "content":[
         {
-          "name":"tcomuser1",
+          "name":"userid",
           "value":"值"
         },{
-          "name":"tcompass",
+          "name":"pwd",
           "value":"值"
         }
       ],
       "submit":{//登录表单的提交方式
-        "selector":"form[action='/login.html']",
+        "selector":"form[action='/member/tg_do.php']",
         "trigger":"submit"
       }
     },
     "publishForm":{
       "content":[
         {
-          "name":"gamename",
+          "name":"title",
           "replace":"game",
           "value":"经过格式化函数处理后的值"
         },{
@@ -57,33 +57,25 @@ define(function(require,exports,module){
           "value":"0",
           "format":4
         },{
-          "name":"gametype",
+          "name":"leixing",
           "replace":"leixing",
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"gameserver[0]",
-          "format":6,
+          "name":"qufu",
+          "format":19,
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"oprcompany",
+          "name":"pingtai",
           "replace":"company",
           "value":"经过格式化函数处理后的值"
         },{
-          "name":"urllogin",
+          "name":"zhuce",
           "replace":"main_url",
           "value":"经过格式化函数处理后的值"
-        },{
-          "name":"urlreg",
-          "replace":"main_url",
-          "value":"经过格式化函数处理后的值"
-        },{
-          "name":"activity",
-          "replace":"info",
-          "value":"0"
         }
       ],
       "submit":{
-        "selector":"form[action='/company_gameform.php']",
+        "selector":"form[action='/member/tg_add.php']",
         "trigger":"submit"
       }
     }

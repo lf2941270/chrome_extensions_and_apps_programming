@@ -11,8 +11,3 @@ seajs.config({
 
 // 加载入口模块
 seajs.use("app")
-function controllerBody($scope){
-	setInterval(function(){
-		$scope.test=new Date()
-	},1000)
-}

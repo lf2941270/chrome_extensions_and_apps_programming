@@ -10,6 +10,7 @@ define(function(require,exports,module){
     }
   }
   function FormatMap(input,replaceform){
+		this.leixing = replaceform.leixing;
     this.year=new Date(replaceform.time).getFullYear().toString();
     this.month=(new Date(replaceform.time).getMonth()+1).toString();
     this.date=new Date(replaceform.time).getDate().toString();
@@ -62,6 +63,8 @@ define(function(require,exports,module){
       return this.fullServerName.replace("双线","");//返回服务器全名：双线？服
     },20:function(){
 			return this.year+"/"+this.month.fill(2)+"/"+this.date.fill(2);
+		},21:function(){
+			return ["", "角色扮演", "战争策略", "休闲竞技", "模拟经营", "社区养成"].indexOf(this.leixing).toString();
 		}
   },true);
 

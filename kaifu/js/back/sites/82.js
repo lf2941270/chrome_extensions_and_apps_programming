@@ -5,7 +5,7 @@ define(function(require,exports,module){
 		status:0,//0表示等待队列中，1表示登陆中，2表示处理中，3表示处理完毕
     page:{
       "status":0,//0表示需要登陆，1表示已有cookie无需登陆或者网站本身不需要登录
-      "login":"http://www.988yx.com/member/tg.php",
+      "login":"http://kaifu.988yx.com/tg/login.php",
       "publish":"http://kaifu.988yx.com/add_game_kf.html"
     },
     "user":{
@@ -14,7 +14,7 @@ define(function(require,exports,module){
       "password":"baiyu0001"
     },
     "loginForm":{
-      "needVerifyCode":true,
+      "needVerifyCode":false,
       "selector":"form[action='/member/tg_do.php']",//登录表单的jquery选择器
       "content":[
         {
@@ -77,7 +77,8 @@ define(function(require,exports,module){
       "submit":{
         "selector":".tijiao",
         "trigger":"click"
-      }
+      },
+			"needVerifyCode":true
     }
   }
 });

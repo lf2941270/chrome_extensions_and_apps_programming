@@ -1,12 +1,13 @@
+
 /*模板*/
 define(function(require,exports,module){
   module.exports={
-    title:"七虹游",
+    title:"ganzhe",
 		status:0,//0表示等待队列中，1表示登陆中，2表示处理中，3表示处理完毕
     page:{
       "status":0,//0表示需要登陆，1表示已有cookie无需登陆或者网站本身不需要登录
-      "login":"http://kf.7hon.com/tg/login.php",
-      "publish":"http://kf.7hon.com/add_game_kf.html"
+      "login":"http://webgame.ganzhe.com/Doinfo/User_Login.asp",
+      "publish":"http://www.ganzhe.com/webgame/fhcard/yxrk.asp?username=baiyu0001"
     },
     "user":{
       "default":false,
@@ -15,67 +16,66 @@ define(function(require,exports,module){
     },
     "loginForm":{
       "needVerifyCode":true,
-      "selector":"form[action='/member/index_do.php']",//登录表单的jquery选择器
+      "selector":"form[action='User_ChkLogin.asp']",//登录表单的jquery选择器
       "content":[
         {
-          "name":"userid",
+          "name":"UserName",
           "value":"值"
         },{
-          "name":"pwd",
+          "name":"UserPassword",
           "value":"值"
-        }
+        },{
+					"name":"CookieDate",
+					"value":"3"
+				}
       ],
       "submit":{//登录表单的提交方式
-        "selector":"form[action='/member/tg_do.php']",
-        "trigger":"submit"
+        "selector":"input[src='Images/User_Login_0_13.gif']",
+        "trigger":"click"
       }
     },
     "publishForm":{
       "content":[
 				{
-					"name":"title",
+					"name":"Title",
 					"replace":"game",
 					"value":"经过格式化函数处理后的值"
 				},{
-					"name":"leixing",
+					"name":"MY_gameserver",
 					"value":"0",
-					"replace":"leixing"
+					"format":6
 				},{
-					"name":"qufu",
+					"name":"MY_gongsi",
 					"value":"0",
-					"format":19
+					"replace":'company'
 				},{
-					"name":"year",
+					"name":"MY_gamelx",
+					"value":"0",
+					"replace":'leixing'
+				},{
+					"name":"nian",
 					"value":"0",
 					"format":0
 				},{
-					"name":"month",
+					"name":"yue",
 					"value":"0",
 					"format":1
 				},{
-					"name":"day",
+					"name":"ri",
 					"value":"0",
 					"format":2
 				},{
-					"name":"hour",
+					"name":"dian",
 					"value":"0",
 					"format":3
 				},{
-					"name":"minute",
-					"value":"0",
-					"format":4
-				},{
-					"name":"zhuce",
+					"name":"MY_gameserverURL",
 					"replace":"main_url",
-					"value":"经过格式化函数处理后的值"
-				},{
-					"name":"pingtai",
-					"replace":"company",
 					"value":"经过格式化函数处理后的值"
 				}
       ],
       "submit":{
-        "selector":".tijiao",
+        "selector":"[name='Submit']",
         "trigger":"click"
       }
     }

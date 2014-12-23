@@ -29,8 +29,8 @@ define(function(require,exports,module){
         }
       ],
       "submit":{//登录表单的提交方式
-        "selector":"#loginForm",
-        "trigger":"submit"
+        "selector":"#submit",
+        "trigger":"click"
       }
     },
     "publishForm":{

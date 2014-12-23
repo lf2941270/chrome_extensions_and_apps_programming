@@ -12,7 +12,9 @@ var handleMap={
         port.postMessage("loginsuc");
         port.postMessage("1")
         $(obj.loginForm.submit.selector).trigger(obj.loginForm.submit.trigger);
-      }
+      }else{
+				alert("请输入验证码后点击登录按钮");
+			}
     }else{
       port.postMessage("loginsuc");
       port.postMessage("2")

@@ -1,12 +1,12 @@
 /*模板*/
 define(function(require,exports,module){
   module.exports={
-    title:"七虹游",
+    title:"shangdu",
 		status:0,//0表示等待队列中，1表示登陆中，2表示处理中，3表示处理完毕
     page:{
       "status":0,//0表示需要登陆，1表示已有cookie无需登陆或者网站本身不需要登录
-      "login":"http://kf.7hon.com/tg/login.php",
-      "publish":"http://kf.7hon.com/add_game_kf.html"
+      "login":"http://g.shangdu.com/yys.php",
+      "publish":"http://g.shangdu.com/yys/addkf.php"
     },
     "user":{
       "default":false,
@@ -14,69 +14,59 @@ define(function(require,exports,module){
       "password":"baiyu0001"
     },
     "loginForm":{
-      "needVerifyCode":true,
-      "selector":"form[action='/member/index_do.php']",//登录表单的jquery选择器
+      "needVerifyCode":false,
+      "selector":"#form1[action='?']",//登录表单的jquery选择器
       "content":[
         {
-          "name":"userid",
+          "name":"username",
           "value":"值"
         },{
-          "name":"pwd",
+          "name":"password",
           "value":"值"
         }
       ],
       "submit":{//登录表单的提交方式
-        "selector":"form[action='/member/tg_do.php']",
-        "trigger":"submit"
+        "selector":"#imageField",
+        "trigger":"click"
       }
     },
     "publishForm":{
       "content":[
 				{
-					"name":"title",
+					"name":"gamename",
 					"replace":"game",
 					"value":"经过格式化函数处理后的值"
 				},{
-					"name":"leixing",
-					"value":"0",
-					"replace":"leixing"
+					"name":"servernum",
+					"replace":"server"
 				},{
-					"name":"qufu",
+					"name":"kftime",
 					"value":"0",
-					"format":19
+					"format":7
 				},{
-					"name":"year",
-					"value":"0",
-					"format":0
-				},{
-					"name":"month",
-					"value":"0",
-					"format":1
-				},{
-					"name":"day",
-					"value":"0",
-					"format":2
-				},{
-					"name":"hour",
+					"name":"kfhour",
 					"value":"0",
 					"format":3
 				},{
-					"name":"minute",
-					"value":"0",
-					"format":4
-				},{
-					"name":"zhuce",
+					"name":"regurl",
 					"replace":"main_url",
 					"value":"经过格式化函数处理后的值"
 				},{
-					"name":"pingtai",
+					"name":"yypt",
 					"replace":"company",
 					"value":"经过格式化函数处理后的值"
+				},{
+					"name":"kffd",
+					"replace":"info",
+					"value":"经过格式化函数处理后的值"
+				},{
+					"name":"istuijian",
+					"value":"0"
 				}
       ],
       "submit":{
-        "selector":".tijiao",
-        "trigger":"click"
+        "selector":"[action='addkf.php']",
+        "trigger":"submit"
       }
     }
   }

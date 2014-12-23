@@ -1,12 +1,12 @@
 /*模板*/
 define(function(require,exports,module){
   module.exports={
-    title:"7mgame",
+    title:"774g",
 		status:0,//0表示等待队列中，1表示登陆中，2表示处理中，3表示处理完毕
     page:{
       "status":0,//0表示需要登陆，1表示已有cookie无需登陆或者网站本身不需要登录
-      "login":"http://zizhu.7mgame.com/login.php",
-      "publish":"http://zizhu.7mgame.com/kf_edit.php"
+      "login":"http://www.774g.com/login.html",
+      "publish":"http://www.774g.com/fabukaifu.html"
     },
     "user":{
       "default":false,
@@ -14,36 +14,28 @@ define(function(require,exports,module){
       "password":"baiyu0001"
     },
     "loginForm":{
-      "needVerifyCode":true,
-      "selector":"form[action='login_control.php']",//登录表单的jquery选择器
+      "needVerifyCode":false,
+      "selector":"form[action='/login.html']",//登录表单的jquery选择器
       "content":[
         {
-          "name":"username",
+          "name":"tcomuser1",
           "value":"值"
         },{
-          "name":"password",
+          "name":"tcompass",
           "value":"值"
         }
       ],
       "submit":{//登录表单的提交方式
-        "selector":"form[action='login_control.php']",
+        "selector":"form[action='/login.html']",
         "trigger":"submit"
       }
     },
     "publishForm":{
       "content":[
         {
-          "name":"title",
+          "name":"gamename",
           "replace":"game",
           "value":"经过格式化函数处理后的值"
-        },{
-          "name":"leixing",
-          "value":"0",
-          "format":21
-        },{
-          "name":"qufu",
-          "value":"0",
-          "format":6
         },{
           "name":"year",
           "value":"0",
@@ -59,20 +51,40 @@ define(function(require,exports,module){
         },{
           "name":"hour",
           "value":"0",
-          "format":8
+          "format":3
         },{
           "name":"minute",
           "value":"0",
           "format":4
         },{
-          "name":"zhuce",
+          "name":"gametype",
+          "replace":"leixing",
+          "value":"经过格式化函数处理后的值"
+        },{
+          "name":"gameserver[0]",
+          "format":6,
+          "value":"经过格式化函数处理后的值"
+        },{
+          "name":"oprcompany",
+          "replace":"company",
+          "value":"经过格式化函数处理后的值"
+        },{
+          "name":"urllogin",
           "replace":"main_url",
           "value":"经过格式化函数处理后的值"
+        },{
+          "name":"urlreg",
+          "replace":"main_url",
+          "value":"经过格式化函数处理后的值"
+        },{
+          "name":"activity",
+          "replace":"info",
+          "value":"0"
         }
       ],
       "submit":{
-        "selector":"form[action='kf_control.php?type=add']",
-        "trigger":"click"
+        "selector":"form[action='/company_gameform.php']",
+        "trigger":"submit"
       }
     }
   }
