@@ -8,7 +8,7 @@ var handleMap={
       for(var i in obj.loginForm.content){
         $('[name="'+obj.loginForm.content[i].name+'"]',obj.loginForm.selector).val(obj.loginForm.content[i].value);
       }
-      if(obj.loginForm.needVerifyCode===false){//不需要验证码
+      if(obj.loginForm.needVerifyCode===false || obj.loginForm.needVerifyCode === undefined){//不需要验证码
         port.postMessage("loginsuc");
         port.postMessage("1")
         $(obj.loginForm.submit.selector).trigger(obj.loginForm.submit.trigger);

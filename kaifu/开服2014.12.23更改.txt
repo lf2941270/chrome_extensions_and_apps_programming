@@ -59,29 +59,30 @@ http://www.2aw.net/fabukaifu.html
 
 http://www.11yx.com/  暂时还不能发 正在开发中 后续应该可以
 
-http://kf.ppwan.com/  还没审核
+http://kf.ppwan.com/  还没审核  √
 
 http://www.heyyx.com/member/submit.html  加了qq  还没审核
 
 
 可以添加的网站
- 豹子发开服表      地址：http://www.baozifa.com
+ 豹子发开服表      地址：http://www.baozifa.com  √
 
-http://www.hellogame.cn/addkf.html
+http://www.hellogame.cn/addkf.html   √ 首字母需要自己手动选择
 
-http://www.604.com/e/DoInfo/AddInfo.php?mid=9&enews=MAddInfo&classid=129
+http://www.604.com/e/DoInfo/AddInfo.php?mid=9&enews=MAddInfo&classid=129 无法登陆
 
-http://www.077g.com/user/kaifu_add.php
+http://www.077g.com/user/kaifu_add.php √
 
-http://www.92ma.com/member/kaifu.php
+http://www.92ma.com/member/kaifu.php √
 
-http://www.37nixi.com    网页游戏大全 
+http://www.37nixi.com    网页游戏大全  √
 
-http://kaifu.wanf8.com/admin_kf.html
+http://kaifu.wanf8.com/admin_kf.html √
 
-http://kf.feifwan.com/users.php
+http://kf.feifwan.com/users.php  已添加  43  √
 
-http://www.711g.com/users.php
+http://www.711g.com/users.php  网站打不开
 
-http://www.226y.com
+http://www.226y.com  √ 游戏名称需要自己手动选择
+
 
